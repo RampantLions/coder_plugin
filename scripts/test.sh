@@ -6,5 +6,14 @@ else
   set -eu
 fi
 
-pdm run test          # Run unit tests
-pdm run test-cov      # Run tests with coverage
+#pdm lock -G dev
+#pdm install -G dev
+
+#pdm lock -G :all
+#pdm install -G :all
+
+# Run unit tests
+pdm run test
+
+# Run tests with coverage
+pdm run test-cov

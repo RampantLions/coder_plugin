@@ -1,11 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+Base plugin unit for the coder_plugin system.
+
+Defines shared fields and behaviors (logger, parent, children) for all plugins,
+including context management, runtime setup, and execution contract enforcement.
+"""
+
 # coder_plugin/base_plugin_unit.py
 
 from __future__ import annotations
+
 from typing import Any, List, Optional, Self, Type
+
 from loguru import logger  # type: ignore
+
 
 class BasePluginUnit:
     """
@@ -31,7 +41,8 @@ class BasePluginUnit:
 
     plugin_group (Optional[str]):
         Purpose:
-            The entry point group that this plugin will own for discovering its children (if it acts as a plugin manager).
+            The entry point group that this plugin will own for discovering its children
+            (if it acts as a plugin manager).
         Usage:
             →  If this plugin loads other plugins dynamically, it looks under plugin_group for child plugins to attach.
             →  Enables hierarchical plugin trees where a plugin manages subordinate plugins.
@@ -54,6 +65,7 @@ class BasePluginUnit:
         self.logger.debug(f"Prepare the {self.__class__.__name__} plugin unit for context-managed execution.")
         return self
 
+    # pylint: disable=useless-return
     def __exit__(
         self,
         exc_type: Optional[Type[BaseException]],
@@ -88,6 +100,7 @@ class BasePluginUnit:
         # Default: do not suppress
         return None
 
+    # pylint: disable=unused-argument
     def __init__(self, *args: Any, **kwargs: Any):
         """
         Initialize the plugin unit.
@@ -102,10 +115,12 @@ class BasePluginUnit:
                 → List of runtime-loaded child plugin instances.
                 → Enables recursive set up, execution, and teardown across plugin trees.
         """
+
         self.logger: logger.__class__ = logger  # type: ignore
         self.parent: Optional[BasePluginUnit] = None  # type: ignore
         self.children: List[BasePluginUnit] = []  # type: ignore
 
+    # pylint: disable=unused-argument
     def run(self, *args: Any, **kwargs: Any) -> Any:
         """
         Run the plugin unit's main logic.
@@ -126,6 +141,7 @@ class BasePluginUnit:
         self.logger.debug(f"Running unit task(s) for {self.__class__.__name__}")
         raise NotImplementedError
 
+    # pylint: disable=unused-argument
     def set_up(self, *args: Any, **kwargs: Any) -> Self:
         """
         Perform setup task(s) for this plugin unit.

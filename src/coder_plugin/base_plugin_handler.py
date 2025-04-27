@@ -1,11 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+Base plugin handler for the coder_plugin system.
+
+Defines a minimal plugin foundation that supports discovery, setup,
+execution, and context-managed resource handling.
+"""
+
 # coder_plugin/base_plugin_handler.py
 
 from __future__ import annotations
-from coder_plugin.base_plugin_unit import BasePluginUnit
+
 from typing import Any, Optional, Self, Type
+
+from .base_plugin_unit import BasePluginUnit
+
 
 class BasePluginHandler(BasePluginUnit):
     """
@@ -15,6 +25,7 @@ class BasePluginHandler(BasePluginUnit):
     via Python entry points. Supports runtime set up, execution, and context management.
     """
 
+    # pylint: disable=unused-argument
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         """Initialize the plugin handler."""
         super().__init__()
@@ -31,13 +42,11 @@ class BasePluginHandler(BasePluginUnit):
         """
 
         self.logger.debug(f"Prepare the {self.__class__.__name__} plugin handler for context-managed execution.")
-        return self
+        return self # pylint: disable=useless-return
 
+    # pylint: disable=useless-return
     def __exit__(
-        self,
-        exc_type: Optional[Type[BaseException]],
-        exc_value: Optional[BaseException],
-        traceback: Optional[object]
+        self, exc_type: Optional[Type[BaseException]], exc_value: Optional[BaseException], traceback: Optional[object]
     ) -> Optional[bool]:
         """
         Context manager exit.
@@ -67,6 +76,7 @@ class BasePluginHandler(BasePluginUnit):
         # Default: do not suppress
         return None
 
+    # pylint: disable=unused-argument
     def run(self, *args: Any, **kwargs: Any) -> Any:
         """
         Run the plugin handler's main logic.
@@ -86,6 +96,7 @@ class BasePluginHandler(BasePluginUnit):
         self.logger.debug(f"Running handler {self.__class__.__name__}")
         raise NotImplementedError
 
+    # pylint: disable=unused-argument
     def set_up(self, *args: Any, **kwargs: Any) -> Self:
         """
         Perform setup task(s) for this plugin.

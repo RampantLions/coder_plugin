@@ -1,15 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+Base plugin manager for the coder_plugin system.
+
+Provides plugin discovery, dynamic loading, and context management
+for organized hierarchical plugin systems.
+
+"""
+
 # coder_plugin/base_plugin_manager.py
 
 from __future__ import annotations
-from typing import Any, Optional, Self, Type
-from coder_plugin.base_plugin_unit import BasePluginUnit
+
 import importlib.metadata
 
-# from typing import Any, Optional, Self, Type, TypeVar
-# Self = TypeVar("Self", bound="BasePluginManager")
+from typing import Any, Optional, Self, Type
+
+from .base_plugin_unit import BasePluginUnit
+
 
 class BasePluginManager(BasePluginUnit):
     """
@@ -30,8 +39,9 @@ class BasePluginManager(BasePluginUnit):
         """
 
         self.logger.debug(f"Prepare the {self.__class__.__name__} plugin manager for context-managed execution.")
-        return self
+        return self # pylint: disable=useless-return
 
+    # pylint: disable=useless-return
     def __exit__(
         self,
         exc_type: Optional[Type[BaseException]],
@@ -66,7 +76,7 @@ class BasePluginManager(BasePluginUnit):
         # Default: do not suppress
         return None
 
-    def __init__(self, auto_load_children: bool = False, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: Any, auto_load_children: bool = False, **kwargs: Any) -> None:
         """
         Initialize the PluginManager.
 
@@ -89,6 +99,7 @@ class BasePluginManager(BasePluginUnit):
         """
         plugin_group = type(self).plugin_group
         if plugin_group is None:
+            self.logger.debug(f"{self.__class__.__name__}: Plugin group was None; skipping load.")
             return
 
         self.logger.debug(f"Loading {self.__class__.__name__} children plugins")
@@ -105,6 +116,7 @@ class BasePluginManager(BasePluginUnit):
                 plugin_instance.parent = self
                 self.children.append(plugin_instance)
 
+    # pylint: disable=useless-return
     def run(self, *args: Any, **kwargs: Any) -> Any:
         """
         Run the plugin manager's main logic.
@@ -137,8 +149,7 @@ class BasePluginManager(BasePluginUnit):
         return self
 
     @classmethod
-    def load_from_parent_group(cls: Type[Self], parent_group: str, parent_name: str, *args: Any,
-                               **kwargs: Any) -> Self:
+    def load_from_parent_group(cls: Type[Self], parent_group: str, parent_name: str, *args: Any, **kwargs: Any) -> Self:
         """
         Discover and load a plugin from a parent group by its registered name.
 
