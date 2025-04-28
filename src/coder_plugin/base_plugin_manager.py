@@ -14,7 +14,6 @@ for organized hierarchical plugin systems.
 from __future__ import annotations
 
 import importlib.metadata
-
 from typing import Any, Optional, Self, Type
 
 from .base_plugin_unit import BasePluginUnit
@@ -39,7 +38,7 @@ class BasePluginManager(BasePluginUnit):
         """
 
         self.logger.debug(f"Prepare the {self.__class__.__name__} plugin manager for context-managed execution.")
-        return self # pylint: disable=useless-return
+        return self  # pylint: disable=useless-return
 
     # pylint: disable=useless-return
     def __exit__(

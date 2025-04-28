@@ -3,7 +3,6 @@ from types import TracebackType
 from typing import Optional, Type
 
 import pytest
-
 from coder_plugin.base_plugin_manager import BasePluginManager
 from coder_plugin.base_plugin_unit import BasePluginUnit
 
