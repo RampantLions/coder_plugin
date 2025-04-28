@@ -1,6 +1,6 @@
 # .github/workflows/deploy-sphinx-docs.yml
 
-name: Deploy Documentation
+name: Build and Deploy Wheel and Documentation
 
 on:
   push:
@@ -10,33 +10,48 @@ on:
       - 'docs/**'
       - 'src/**'
       - 'pyproject.toml'
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Install Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.11"
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-    - name: Install Dependencies
-      run: |
-        pip install uv pdm
-        pdm install -G docs
+      - name: Install Dependencies
+        run: |
+          python -m pip install uv pdm
+          pdm config python.use_venv false
+          pdm install -G docs
 
-    - name: Build Docs
-      run: |
-        pdm run docs-build
+      - name: Build Wheel
+        run: |
+          pdm build --no-sdist
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/html
+      - name: Build Documentation
+        run: |
+          pdm run docs-build
+
+      - name: Prepare Deployment Content
+        run: |
+          mkdir deploy_output
+          cp -r docs/build/html/* deploy_output/
+          mkdir -p deploy_output/wheel/
+          cp dist/*.whl deploy_output/wheel/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: deploy_output
+          publish_branch: gh-pages
+          force_orphan: true
