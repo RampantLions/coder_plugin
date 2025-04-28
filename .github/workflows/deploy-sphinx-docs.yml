@@ -28,7 +28,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install pdm
+        pip install uv pdm
         pdm install -G docs
 
     - name: Build Docs
