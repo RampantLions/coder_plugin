@@ -30,7 +30,7 @@ If you use **{{ project_name }}** in your work or publications, please cite it a
 | Placeholder | Meaning |
 |:------------|:--------|
 | `{{ project_name }}` | The name of your software/project |
-| `{{ zenodo_doi_badge_id }}` | The Zenodo badge identifier (e.g., `10.5281/zenodo.801613`) |
+| `{{ zenodo_doi_badge_id }}` | The Zenodo badge identifier (e.g., `{doi}`) |
 | `{{ zenodo_doi_number }}` | The DOI itself (same as above without splitting) |
 | `{{ author_name }}` | Author's full name |
 | `{{ year }}` | Year of publication |
@@ -38,7 +38,7 @@ If you use **{{ project_name }}** in your work or publications, please cite it a
 | `{{ month_abbreviation }}` | Short month (`mar`, `apr`, etc.) for BibTeX |
 | `{{ paper_title }}` | Full title of the software, publication, or paper |
 | `{{ publisher_name }}` | Organization hosting the record (e.g., Zenodo) |
-| `{{ citation_key }}` | The BibTeX identifier (e.g., `thompson_2015`) |
+| `{{ citation_key }}` | The BibTeX identifier (e.g., `wiechman_2016`) |
 
 ---
 
@@ -49,22 +49,22 @@ If you use **{{ project_name }}** in your work or publications, please cite it a
 
 If you use **Re-Frame** in your work or publications, please cite it as follows:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.801613.svg)](https://doi.org/10.5281/zenodo.801613)
+[![DOI](https://zenodo.org/badge/DOI/{doi}.svg)](https://doi.org/{doi})
 
-Michael Thompson (2015, March). **Re-Frame: A Reagent Framework For Writing SPAs, in Clojurescript.** Zenodo. [https://doi.org/10.5281/zenodo.801613](https://doi.org/10.5281/zenodo.801613)
+Joshua Wiechman (2016, January). **Coder Plugin**. [https://doi.org/{doi}](https://doi.org/{doi})
 
 ---
 
 ## 📚 BibTeX Citation
 
 ```bibtex
-@misc{thompson_2015,
-  author       = {Thompson, Michael},
-  title        = {Re-Frame: A Reagent Framework For Writing SPAs, in Clojurescript.},
-  month        = mar,
-  year         = 2015,
-  doi          = {10.5281/zenodo.801613},
-  url          = {https://doi.org/10.5281/zenodo.801613}
+@misc{wiechman_2016,
+  author       = {Wiechman, Joshua},
+  title        = {Coder Plugin},
+  month        = jan,
+  year         = 2016,
+  doi          = {{doi}},
+  url          = {https://doi.org/{doi}}
 }
 
 <!-- END LiminalCognition LLC CITATION.MD BLOCK -->
