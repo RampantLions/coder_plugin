@@ -121,8 +121,8 @@ class BasePluginManager(BasePluginUnit):
         Run the plugin manager's main logic.
 
         Args:
-            *args (Any): Positional arguments forwarded to each child plugin.
-            **kwargs (Any): Keyword arguments forwarded to each child plugin.
+            \\*args (Any): Positional arguments forwarded to each child plugin.
+            \\*\\*kwargs (Any): Keyword arguments forwarded to each child plugin.
 
         Returns:
             Any: The result of the plugin manager's execution, as defined by the subclass.
@@ -155,8 +155,8 @@ class BasePluginManager(BasePluginUnit):
         Args:
             parent_group (str): The entry point group where the parent plugin is registered.
             parent_name (str): The registered name of the plugin to load.
-            *args (Any): Positional arguments to pass to the plugin constructor.
-            **kwargs (Any): Keyword arguments to pass to the plugin constructor.
+            \\*args (Any): Positional arguments to pass to the plugin constructor.
+            \\*\\*kwargs (Any): Keyword arguments to pass to the plugin constructor.
 
         Returns:
             Self: An instantiated plugin object.
@@ -165,8 +165,8 @@ class BasePluginManager(BasePluginUnit):
             LookupError: If no plugin with the specified name is found.
 
         Notes:
-            → If no additional arguments are needed, the plugin class will be instantiated with no arguments.
-            → If arguments are needed, they will be passed through *args and **kwargs.
+            - If no additional arguments are needed, the plugin class will be instantiated with no arguments.
+            - If arguments are needed, they will be passed through \\*args and \\*\\*kwargs.
 
         """
         entry_points = importlib.metadata.entry_points()

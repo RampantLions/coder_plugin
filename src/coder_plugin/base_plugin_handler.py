@@ -84,8 +84,8 @@ class BasePluginHandler(BasePluginUnit):
         This method must be implemented by subclasses.
 
         Args:
-            *args (Any): Positional arguments for plugin's run logic.
-            **kwargs (Any): Keyword arguments for plugin's run logic.
+            \\*args (Any): Positional arguments for plugin's run logic.
+            \\*\\*kwargs (Any): Keyword arguments for plugin's run logic.
 
         Returns:
             Any: The result of the plugin handler's execution, as defined by the subclass.
