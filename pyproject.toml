@@ -36,29 +36,33 @@ dependencies = [
 ]
 keywords = []
 classifiers = [
-  "Development Status :: 3 - Alpha",
-  "Development Status :: 4 - Beta",
-  "Development Status :: 5 - Production/Stable",
-  "Intended Audience :: Developers",
-#  "License :: OSI Approved :: MIT License",
-#  "License :: OSI Approved :: BSD license",
-#  "License :: OSI Approved :: Apache Software License 2.0",
-#  "License :: OSI Approved :: ISC license",
-#  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-  "Natural Language :: English",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
-  "Programming Language :: Python :: Implementation :: CPython",
-  "Programming Language :: Python :: Implementation :: PyPy",
-  "Topic :: Internet",
-  "Topic :: Software Development :: Build Tools",
-  "Topic :: Software Development :: Libraries :: Application Frameworks",
-  "Topic :: Software Development :: Libraries :: Python Modules",
-  "Topic :: Software Development :: Libraries",
-  "Topic :: Software Development"
+    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    #  "License :: OSI Approved :: MIT License",
+    #  "License :: OSI Approved :: BSD license",
+    #  "License :: OSI Approved :: Apache Software License 2.0",
+    #  "License :: OSI Approved :: ISC license",
+    #  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development"
 ]
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -147,10 +151,112 @@ Donate = "https://github.com/sponsors/RampantLions"
 #      🔗 https://bandit.readthedocs.io/en/latest/config.html
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.bandit]
-exclude_dirs = ["build","dist","tests","scripts"]
+exclude_dirs = ["build","dist","tests","scripts","__pycache__","venv"]
 number = 4
 recursive = true
 targets = "src"
+
+[tool.bandit.tests]
+
+# List of plugins (tests) to include. Use B* to include all.
+# Specific checks can be enabled or disabled here.
+include = [
+  "B101",  # assert_used
+  "B102",  # exec_used
+  "B103",  # set_bad_file_permissions
+  "B104",  # hardcoded_bind_all_interfaces
+  "B105",  # hardcoded_password_string
+  "B106",  # hardcoded_password_funcarg
+  "B107",  # hardcoded_password_default
+  "B108",  # hardcoded_tmp_directory
+  "B110",  # try_except_pass
+  "B112",  # try_except_continue
+  "B201",  # flask_debug_true
+  "B301",  # pickle
+  "B302",  # marshal
+  "B303",  # md5
+  "B304",  # ciphers
+  "B305",  # cipher_modes
+  "B306",  # mktemp
+  "B307",  # eval
+  "B308",  # mark_safe
+  "B309",  # httpsconnection
+  "B310",  # urllib_urlopen
+  "B311",  # random
+  "B312",  # telnetlib
+  "B313",  # xml_bad_cElementTree
+  "B314",  # xml_bad_ElementTree
+  "B315",  # xml_bad_expatreader
+  "B316",  # xml_bad_expatbuilder
+  "B317",  # xml_bad_sax
+  "B318",  # xml_bad_minidom
+  "B319",  # xml_bad_pulldom
+  "B320",  # xml_bad_etree
+  "B321",  # ftplib
+  "B322",  # input
+  "B323",  # hashlib_new_insecure_functions
+  "B324",  # hashlib_new_insecure_methods
+  "B401",  # import_telnetlib
+  "B402",  # import_ftplib
+  "B403",  # import_pickle
+  "B404",  # import_subprocess
+  "B405",  # import_xml
+  "B406",  # import_pycrypto
+  "B407",  # import_pycryptodome
+  "B408",  # import_random
+  "B409",  # import_base64
+  "B410",  # import_requests
+  "B411",  # import_urllib
+  "B412",  # import_lxml
+  "B501",  # request_with_no_cert_validation
+  "B502",  # ssl_with_bad_version
+  "B503",  # ssl_with_bad_defaults
+  "B504",  # ssl_with_no_version
+  "B505",  # weak_cryptographic_key
+  "B506",  # yaml_load
+  "B507",  # ssh_no_host_key_verification
+  "B508",  # snmp_insecure_version
+  "B509",  # snmp_community_string
+  "B601",  # paramiko_calls
+  "B602",  # subprocess_popen_with_shell_equals_true
+  "B603",  # subprocess_without_shell_equals_true
+  "B604",  # any_other_function_with_shell_equals_true
+  "B605",  # start_process_with_a_shell
+  "B606",  # start_process_with_no_shell
+  "B607",  # start_process_with_partial_path
+  "B608",  # hardcoded_sql_expressions
+  "B609",  # linux_command_injection
+  "B610",  # django_extra_used
+  "B611",  # django_rawsql_used
+  "B701",  # jinja2_autoescape_false
+  "B702",  # use_of_mako_templates
+  "B703",  # django_mark_safe
+]
+
+# Optional: exclude certain tests if needed
+exclude = []
+
+[tool.bandit.settings]
+
+# Severity levels are: LOW, MEDIUM, HIGH
+severity = "LOW"
+
+# Confidence levels are: LOW, MEDIUM, HIGH
+confidence = "HIGH"
+
+# Show lines of code around the issue (default is 3)
+# Useful for context in output
+lines = 5
+
+# Whether to output using the color terminal formatter
+color = true
+
+# Optional baseline file to compare runs
+baseline = ".bandit_baseline.json"
+
+# Optional: number of threads to use for scanning
+# Set to 0 to use all available cores
+number = 4
 
 # {%- endif %}
 
@@ -173,6 +279,7 @@ target-version = ['py311']
 #      ╰─▶ Defines where HTML coverage reports are saved
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.coverage.html]
+# Output directory for HTML report
 directory = "htmlcov"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -202,11 +309,27 @@ exclude_lines = [
     '''^if __name__ == ['"]__main__['"]:$'''
 ]
 
+# Another way to enforce minimum coverage
 fail_under = 80
+
+# Show lines that are missing
 show_missing = true
-skip_covered = true
+
+# Don’t report files 100% covered
+skip_covered = false
+
 skip_empty = true
+
+# Decimal precision in coverage output
 precision = 2
+
+# ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+#   📈 Coverage XML Report Output
+#      ╰─▶ Defines where XML coverage reports are saved
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[tool.coverage.xml]
+# Output file path for XML report
+output = "coverage.xml"
 
 # {% if cookiecutter.flake8_enabled == "y" %}
 
@@ -215,6 +338,74 @@ precision = 2
 #      ╰─▶ Defines code style and linting rules enforced by Flake8
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.flake8]
+
+#;Flake8-Bugbear select Codes with Descriptions
+#;
+#;Code	Description
+#;B001	Do not use assert outside of testing. It can be globally disabled with -O.
+#;B002	Using exec() is dangerous and discouraged.
+#;B003	Using globals() or locals() is discouraged due to unpredictable behavior.
+#;B004	Using hasattr(x, '__call__') to test for callability is unreliable. Use callable(x) instead.
+#;B005	Using .strip() with multi-character strings has surprising behavior.
+#;B006	Do not use mutable data structures (e.g., list, dict, set) as function argument defaults.
+#;B007	Loop control variable or tuple unpacking element is overwritten later.
+#;B008	Do not call functions in argument defaults.
+#;B009	Do not use getattr with a constant default. Suggests using x.y instead of getattr(x, "y", default).
+#;B010	Do not use setattr with a constant attribute name.
+#;B011	Use of assert False detected. Consider raising an exception instead.
+#;B012	Using return inside finally blocks causes unexpected behavior.
+#;B013	len(x) comparison to constant (e.g., len(x) == 0) should be replaced with not x or if x:.
+#;B014	Redundant exception catching (e.g., except BaseException as e: raise) can be simplified.
+#;B015	Boolean condition in if or while is a constant (if True: or if False:).
+#;B016	Cannot raise None.
+#;B017	Exception handler re-raises a different exception than caught.
+#;B018	Found unnecessary expression in __init__ body without assignment or effect.
+#;B019	Do not use datetime.datetime.utcnow() without timezone.
+#;B020	Found loop variable used inside function default.
+#;B021	Found f-string used as docstring (likely a mistake).
+#;B022	Function definition inside a loop.
+#;B023	Function returns annotated None but has an explicit return value.
+#;B024	Abstract base class has no abstract methods.
+#;B025	Use of bare except: is discouraged.
+#;B026	Star-args usage in function call (*args, **kwargs) might hide bugs.
+#;B027	Exception raised but not handled or re-raised.
+#;B028	No explicit return at end of function returning non-None value.
+#;B029	Multiple context managers in a single with statement should be split for clarity.
+#;B030	except block may swallow exception due to missing raise or handling logic.
+#;B031	try block has only finally; use with if no except.
+#;B032	Loop variable used in lambda or comprehension may lead to unexpected behavior.
+#;B033	yield in finally is dangerous.
+#;B034	Reassigning function arguments is discouraged.
+#;B035	Redundant list comprehension (e.g., [x for x in y] can be replaced with list(y)).
+#;
+#;
+#;Opinionated Rules (B9xx)
+#;These are more subjective or style-enforcing rules. They can be selected via B9 or individually.
+#;
+#;Code	Description
+#;B901	Functions should not have high cyclomatic complexity.
+#;B902	Functions using mutable defaults must be properly guarded.
+#;B903	Use collections.namedtuple or dataclasses instead of bare tuples.
+#;B904	Use raise from to maintain exception tracebacks.
+#;B905	Avoid using .isdigit() or .isnumeric() in ways that misinterpret Unicode behavior.
+#;B906	Don’t use return await; remove return to avoid redundant behavior.
+#;B950	Line too long; must be shorter than max-line-length, even with Black formatting.
+#;B951	Use yield from instead of manual iteration when delegating.
+
+# Control Bugbear's logging
+bugbear-log-level = "warning"  # Set to error/info/debug to control output
+
+# Control how B904 handles try/except/finally return statements
+# Flag when a try block returns but finally also returns
+b904-check = true
+
+# List of names for which B007 will ignore assignment (e.g. _)
+# B007: unused loop or unpacking variables
+dummy-variable-rgx = "_+$"
+
+# Add custom rules or plugins
+enable-extensions = []
+
 exclude = [
     ".eggs",
     ".git",
@@ -227,6 +418,26 @@ exclude = [
     "tests",
     "swagger_client"
 ]
+
+# Exit zero even if there are warnings (not recommended in CI)
+exit-zero = false
+
+# List of globals you want to exempt from B003 (using globals())
+# B003: using globals() is discouraged
+#extend-acceptable-globals = ["myglobal"]
+
+# Suppress warning when using B950 in tandem with Black formatter
+extend-ignore = ["B950"]
+
+# Report formatting
+format = "default"
+
+# List of function names for which B902 should flag mutable default arguments
+# B902: extend which functions trigger immutable checks
+#extend-immutable-defaults = ["myfunc"]
+
+# List of warnings to ignore
+# Add codes like B006 if you want to disable a specific rule
 ignore = [
     "E722",  # Do not use bare except
     "B001",  # Do not use bare except (bugbear duplicate)
@@ -234,7 +445,25 @@ ignore = [
     "E203",  # Whitespace before ':' (conflicts with black)
     "D107",  # Missing docstring in __init__
 ]
+
+# Set max complexity threshold for cyclomatic complexity (if using B901)
+# This only triggers if flake8's mccabe is installed
+# Functions with complexity >10 will be flagged
+max-complexity = 10
+
+# Maximum allowed function/method length (in lines) before B950 triggers
+# B950 is Bugbear's line-length checker that kicks in after flake8's default line length
+# Recommended default, matches Black formatter
 max-line-length = 120
+
+# List of built-in mutable default argument types that B006 will flag
+# e.g. list, dict, set
+# B006: mutable default values in function args
+mutable-default-args = ["list", "dict", "set"]
+
+# Select Bugbear's core warnings (B) and opinionated warnings (B9)
+# B codes: core bug-prone patterns
+# B9 codes: opinionated style warnings
 select = "E,F,W,C90,B,B9,D,B901,B902,B903"
 
 # {%- endif %}
@@ -246,11 +475,101 @@ select = "E,F,W,C90,B,B9,D,B901,B902,B903"
 #      ╰─▶ Defines sorting rules for Python imports
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.isort]
-profile = "black"
-line_length = 120
+
+# Include header comments at the top of sorted files (can be customized).
+add_imports = []
+
+# Allow or disallow the use of relative imports.
+allow_relative_imports = true
+
+# Ensure imports are sorted case-insensitively.
+case_sensitive = false
+
+# Print errors when the import order is incorrect.
+check = false
+
+# Ensure from imports are grouped together when possible.
+combine_as_imports = true
+
+# Ensure all from imports are combined on one line if possible.
+combine_star = false
+
+# Place imports that can't be classified at the end.
+default_section = "THIRDPARTY"
+
+# Do not automatically apply changes (used with --check).
+diff = false
+
+# Controls whether to include a trailing newline.
+ensure_newline_before_comments = true
+
+# Ensure the number of imports before switching to multiline format.
+force_grid_wrap = 0
+
+# Force a single line per import (only used with certain modes).
+force_single_line = false
+
+# Group imports by their section (standard library, third-party, etc.)
+force_sort_within_sections = false
+
+# Ensure all imports appear at the top of the file.
+force_to_top = false
+
+## Custom import headings (optional).
+#import_heading_stdlib = "Standard Library"
+#import_heading_thirdparty = "Third Party"
+#import_heading_firstparty = "First Party"
+
+# Add a trailing comma after the last import when using multi-line mode (Black-compatible).
+include_trailing_comma = true
+
+# Recognize `__init__.py` files as modules to avoid relative import issues.
 known_first_party = ["coder_plugin"]
-known_third_party = ["loguru", "pluggy"]
+
+# List of known standard libraries (rarely needed unless overriding).
+known_standard_library = ["os", "sys", "json", "re"]
+
+# List of known third-party libraries.
+known_third_party = ["loguru", "pluggy", "requests", "setuptools", "numpy", "pandas"]
+
+# Add an empty line between different sections.
+lines_between_sections = 1
+
+# Number of blank lines between different import types (e.g., regular vs. from imports).
+lines_between_types = 0
+
+# Line length for wrapping imports (match Black's default).
+line_length = 120
+
+# Custom section ordering (if used).
+no_lines_before = ["LOCALFOLDER"]
+
+# Use the "black" profile for compatibility with the Black formatter.
+profile = "black"
+
+# Format imports using parentheses instead of backslashes for multiline.
+multi_line_output = 3  # 3 = Vertical Hanging Indent (Black-compatible)
+
+# Automatically remove duplicate imports.
+remove_redundant_aliases = false
+
+# Order of import sections.
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+# List of directories that should be considered first-party.
 src_paths = ["src", "tests"]
+
+# Skip sorting of certain files or directories.
+skip = [".venv", ".tox", "build", "dist"]
+
+# Whether or not to apply import sorting in nested classes/functions.
+skip_gitignore = true
+
+# Files to explicitly skip when sorting imports.
+skip_glob = ["*/migrations/*.py"]
+
+# Allow or disallow the use of star imports (`from module import *`).
+use_parentheses = true
 
 # {%- endif %}
 
@@ -262,15 +581,76 @@ src_paths = ["src", "tests"]
 #      🔗 https://mypy.readthedocs.io/en/stable/config_file.html
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.mypy]
+
+# Disallow reassigning a name with a different type
+allow_redefinition = false
+
+# Cache directory for mypy
+cache_dir = ".mypy_cache"
+
+# Type-check the body of untyped functions
+check_untyped_defs = true
+
+# Error on functions missing return or argument annotations
 disallow_incomplete_defs = true
+
+# Error on functions without type annotations
 disallow_untyped_defs = true
+
+enable_error_code = ["ignore-without-code", "truthy-bool"]
+
 exclude = ["tests/"]
+
+# Source paths to check
 files = ["src"]
+
+# Follow imports normally
+follow_imports = "normal"
+
+# Enable faster incremental checking
+incremental = true
+
+# Suppress errors for missing imports (e.g., C extensions, 3rd party libs)
 ignore_missing_imports = true
+
+# Forces explicit Optional[...] if a value can be None
 no_implicit_optional = true
+
+# Enable plugin(s), adjust as needed
+#plugins = [""]
+
+# Format errors in a more readable way
+pretty = true
+
+# Target Python version
 python_version = "3.11"
+
+# Show column numbers in error output
+show_column_numbers = true
+
+# Show error codes like [attr-defined]
+show_error_codes = true
+
 strict = true
+
+# Makes None a separate type
+strict_optional = true
+
+warn_no_return = false
+
+# Warn when an explicit cast is not needed
+warn_redundant_casts = true
+
+# Warn if returning `Any` from functions
 warn_return_any = true
+
+# Warn about unreachable code
+warn_unreachable = true
+
+# Warn about unused configuration options
+warn_unused_configs = true
+
+# Warn if a "# type: ignore" is unnecessary
 warn_unused_ignores = true
 
 # {%- endif %}
@@ -502,6 +882,9 @@ autofix_commit_msg = "style: pre-commit fixes"
 #      ╰─▶ Defines code style and linting rules enforced by Pylint
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint]
+# A comma-separated list of package or module names from where C extensions may
+# be loaded. Extensions are loading into the active Python interpreter and may
+# run arbitrary code
 extension-pkg-whitelist= [
     "numpy",
     "torch",
@@ -512,13 +895,36 @@ extension-pkg-whitelist= [
     "netcdf4",
     "scipy"
 ]
+
+# Add files or directories to the blacklist. They should be base names, not paths.
 ignore="CVS"
+
+# Add files or directories matching the regex patterns to the blacklist.
+# The regex matches against base names, not paths.
 ignore-patterns="test.*?py,conftest.py"
+
+# Python code to execute, usually for sys.path manipulation such as pygtk.require().
 init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())'
+
+# Use multiple processes to speed up Pylint.
 jobs=0
+
 limit-inference-results=100
+
+# List of plugins (as comma separated values of python modules names) to load,
+# usually to register additional checkers.
+#load-plugins=
+
+# Pickle collected data for later comparisons.
 persistent="yes"
+
+# Specify a configuration file.
+#rcfile=
+
 suggestion-mode="yes"
+
+# Allow loading of arbitrary C extensions. Extensions are imported into the
+# active Python interpreter and may run arbitrary code.
 unsafe-load-any-extension="no"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -526,17 +932,70 @@ unsafe-load-any-extension="no"
 #      ╰─▶ Rules for naming variables, functions, classes, and attributes
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.basic]
+
+# Naming hint for argument names
+argument-name-hint="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
 argument-naming-style="snake_case"
+
+# Regular expression matching correct argument names
+argument-rgx="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
+# Naming hint for attribute names
+attr-name-hint="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
 attr-naming-style="snake_case"
+
+# Regular expression matching correct attribute names
+attr-rgx="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
+# Bad variable names which should always be refused, separated by a comma
 bad-names= [
     "foo",
-    "bar"
+    "bar",
+    "baz",
+    "toto",
+    "tutu",
+    "tata"
 ]
+
+
+# Naming hint for class attribute names
+class-attribute-name-hint="([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$"
+
 class-attribute-naming-style="any"
+
+# Regular expression matching correct class attribute names
+class-attribute-rgx="([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$"
+
+# Naming hint for class names
+class-name-hint="[A-Z_][a-zA-Z0-9]+$"
+
+# Naming hint for constant names
+const-name-hint="(([A-Z_][A-Z0-9_]*)|(__.*__))$"
+
 class-naming-style="PascalCase"
+
+# Regular expression matching correct class names
+class-rgx="[A-Z_][a-zA-Z0-9]+$"
+
 const-naming-style="UPPER_CASE"
+
+# Regular expression matching correct constant names
+const-rgx="(([A-Z_][A-Z0-9_]*)|(__.*__))$"
+
+# Minimum line length for functions/classes that require docstrings, shorter ones are exempt.
 docstring-min-length=-1
+
+# Naming hint for function names
+function-name-hint="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
 function-naming-style="snake_case"
+
+# Regular expression matching correct function names
+function-rgx="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
+# Good variable names which should always be accepted, separated by a comma
 good-names= [
     "i",
     "j",
@@ -545,25 +1004,69 @@ good-names= [
     "Run",
     "_"
 ]
+
+# Include a hint for the correct naming format with invalid-name
 include-naming-hint="yes"
+
+# Naming hint for inline iteration names
+inlinevar-name-hint="[A-Za-z_][A-Za-z0-9_]*$"
+
 inlinevar-naming-style="any"
+
+# Regular expression matching correct inline iteration names
+inlinevar-rgx="[A-Za-z_][A-Za-z0-9_]*$"
+
+# Naming hint for method names
+method-name-hint="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
 method-naming-style="snake_case"
+
+# Regular expression matching correct method names
+method-rgx="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
+# Naming hint for module names
+module-name-hint="(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$"
+
 module-naming-style="any"
+
+# Regular expression matching correct module names
+module-rgx="(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$"
+
+# Colon-delimited sets of names that determine each other's naming style when
+# the name regexes allow several styles.
+#name-group=
+
+# Regular expression which should only match function or class names that do
+# not require a docstring.
 no-docstring-rgx="^_"
+
+# List of decorators that produce properties, such as abc.abstractproperty. Add
+# to this list to register other decorators that produce valid properties.
 property-classes="abc.abstractproperty"
+
+# Naming hint for variable names
+variable-name-hint="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
+
 variable-naming-style="snake_case"
+
+# Regular expression matching correct variable names
+variable-rgx="(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 #   🧹 Pylint Class Structure Settings
 #      ╰─▶ Rules related to class attribute definitions and methods
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.classes]
+
+# List of method names used to declare (i.e. assign) instance attributes.
 defining-attr-methods= [
     "__init__",
     "__new__",
     "setUp",
     "__post_init__"
 ]
+
+# List of member names, which should be excluded from the protected access warning.
 exclude-protected= [
     "_asdict",
     "_fields",
@@ -571,7 +1074,11 @@ exclude-protected= [
     "_source",
     "_make"
 ]
+
+# List of valid names for the first argument in a class method.
 valid-classmethod-first-arg="cls"
+
+# List of valid names for the first argument in a metaclass class method.
 valid-metaclass-classmethod-first-arg="cls"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -579,15 +1086,34 @@ valid-metaclass-classmethod-first-arg="cls"
 #      ╰─▶ Limits for complexity such as arguments, branches, and methods
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.design]
-max-args=5
-max-attributes=7
+# Maximum number of arguments for function / method
+max-args=9
+
+# Maximum number of attributes for a class (see R0902).
+max-attributes=35
+
+# Maximum number of boolean expressions in a if statement
 max-bool-expr=5
+
+# Maximum number of branch for function / method body
 max-branches=12
+
+# Maximum number of locals for function / method body
 max-locals=15
+
+# Maximum number of parents for a class (see R0901).
 max-parents=7
+
+# Maximum number of public methods for a class (see R0904).
 max-public-methods=20
+
+# Maximum number of return / yield for function / method body
 max-returns=6
+
+# Maximum number of statements in function / method body
 max-statements=50
+
+# Minimum number of public methods for a class (see R0903).
 min-public-methods=2
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -595,6 +1121,8 @@ min-public-methods=2
 #      ╰─▶ Controls allowed exception types
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.exceptions]
+
+# Exceptions that will emit a warning when being caught. Defaults to "Exception"
 overgeneral-exceptions= [
     "BaseException",
     "Exception"
@@ -605,12 +1133,36 @@ overgeneral-exceptions= [
 #      ╰─▶ Settings for indentation, line length, and format constraints
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.format]
+# Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
+#expected-line-ending-format=
+
+# Regexp for a line that is allowed to be longer than the limit.
 ignore-long-lines="^\\s*(# )?.*['\"]?<?https?://\\S+>?"
+
+# Number of spaces of indent required inside a hanging  or continued line.
 indent-after-paren=4
+
+# String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1 tab).
 indent-string='    '
+
+# Maximum number of characters on a single line.
 max-line-length=120
+
+# Maximum number of lines in a module
 max-module-lines=1000
+
+# List of optional constructs for which whitespace checking is disabled. `dict-
+# separator` is used to allow tabulation in dicts, etc.: {1  : 1,\n222: 2}.
+# `trailing-comma` allows a space between comma and closing bracket: (a, ).
+# `empty-line` allows space-only lines.
+#no-space-check="trailing-comma,dict-separator"
+
+# Allow the body of a class to be on the same line as the declaration if body
+# contains single statement.
 single-line-class-stmt="no"
+
+# Allow the body of an if to be on the same line as the test if there is no
+# else.
 single-line-if-stmt="no"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -618,9 +1170,34 @@ single-line-if-stmt="no"
 #      ╰─▶ Rules for handling module imports and wildcard usage
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.imports]
+
+# Allow wildcard imports from modules that define __all__.
 allow-wildcard-with-all="no"
+
+# Analyse import fallback blocks. This can be used to support both Python 2 and
+# 3 compatible code, which means that the block might have code that exists
+# only in one or another interpreter, leading to false positives when analysed.
 analyse-fallback-blocks="no"
-deprecated-modules="optparse,tkinter.tix"
+
+# Deprecated modules which should not be used, separated by a comma
+deprecated-modules="optparse,tkinter.tix,regsub,TERMIOS,Bastion,rexec"
+
+# Create a graph of external dependencies in the given file (report RP0402 must
+# not be disabled)
+#ext-import-graph=
+
+# Create a graph of every (i.e. internal and external) dependencies in the
+# given file (report RP0402 must not be disabled)
+#import-graph=
+
+# Create a graph of internal dependencies in the given file (report RP0402 must not be disabled)
+#int-import-graph=
+
+# Force import order to recognize a module as part of the standard compatibility libraries.
+#known-standard-library=
+
+# Force import order to recognize a module as part of a third party library.
+#known-third-party=enchant
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 #   🧹 Pylint Logging Configuration
@@ -628,6 +1205,9 @@ deprecated-modules="optparse,tkinter.tix"
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.logging]
 logging-format-style="old"
+
+# Logging modules to check that the string format arguments are in logging
+# function parameter format
 logging-modules="logging"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -644,7 +1224,26 @@ init-hook = "import sys; sys.path.append('src')"
 #      ╰─▶ Enables or disables specific pylint warnings and errors
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.messages_control]
+
+# Only show warnings with the listed confidence levels. Leave empty to show
+# all. Valid levels: HIGH, INFERENCE, INFERENCE_FAILURE, UNDEFINED
+#confidence=
+
+# Disable the message, report, category or checker with the given id(s). You
+# can either give multiple identifiers separated by comma (,) or put this
+# option multiple times (only on the command line, not in the configuration
+# file where it should appear only once).You can also use "--disable=all" to
+# disable everything first and then reenable specific checks. For example, if
+# you want to run only the similarities checker, you can use "--disable=all
+# --enable=similarities". If you want to run only the classes checker, but have
+# no Warning level messages displayed, use"--disable=all --enable=classes
+# --disable=W"
 disable = ["duplicate-code", "import-error", "relative-beyond-top-level"]
+
+# Enable the message, report, category or checker with the given id(s). You can
+# either give multiple identifier separated by comma (,) or put this option
+# multiple time (only on the command line, not in the configuration file where
+# it should appear only once). See also the "--disable" option for examples.
 enable="c-extension-no-member"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -652,6 +1251,7 @@ enable="c-extension-no-member"
 #      ╰─▶ Miscellaneous rules including TODO note detection
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.miscellaneous]
+# List of note tags to take in consideration, separated by a comma.
 notes= [
     "FIXME",
     "XXX",
@@ -663,7 +1263,10 @@ notes= [
 #      ╰─▶ Rules for refactoring suggestions like maximum nesting
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.refactoring]
+
+# Maximum number of nested blocks for function / method body
 max-nested-blocks=5
+
 never-returning-functions="sys.exit"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -671,10 +1274,27 @@ never-returning-functions="sys.exit"
 #      ╰─▶ Controls reporting formats, scores, and evaluation formulas
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.reports]
+# Python expression which should return a note less than 10 (10 is the highest
+# note). You have access to the variables errors warning, statement which
+# respectively contain the number of errors / warnings messages and the total
+# number of statements analyzed. This is used by the global evaluation report
+# (RP0004).
 evaluation="10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)"
+
+# Template used to display messages. This is a python new-style format string
+# used to format the message information. See doc for all details
+#msg-template=
+
+# Set the output format. Available formats are text, parseable, colorized, json
+# and msvs (visual studio).You can also give a reporter class, eg
+# mypackage.mymodule.MyReporterClass.
 output-format="text"
 # output-format="pylint_junit.JUnitReporter"
+
+# Tells whether to display a full report or only the messages
 reports="no"
+
+# Activate the evaluation score.
 score="yes"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -682,9 +1302,17 @@ score="yes"
 #      ╰─▶ Settings for detecting duplicate code across files
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.similarities]
+
+# Ignore comments when computing similarities.
 ignore-comments="yes"
+
+# Ignore docstrings when computing similarities.
 ignore-docstrings="yes"
+
+# Ignore imports when computing similarities.
 ignore-imports="yes"
+
+# Minimum lines number of a similarity.
 min-similarity-lines=7
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -692,7 +1320,21 @@ min-similarity-lines=7
 #      ╰─▶ Spelling suggestion controls for code comments and docstrings
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.spelling]
+
 max-spelling-suggestions=4
+
+# Spelling dictionary name. Available dictionaries: none. To make it working
+# install python-enchant package.
+#spelling-dict=
+
+# List of comma separated words that should not be checked.
+#spelling-ignore-words=
+
+# A path to a file that contains private dictionary; one word per line.
+#spelling-private-dict-file=
+
+# Tells whether to store unknown words to indicated private dictionary in
+# --spelling-private-dict-file option instead of raising a message.
 spelling-store-unknown-words="no"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -707,15 +1349,52 @@ check-str-concat-over-line-jumps="no"
 #      ╰─▶ Settings for verifying attribute and member existence
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.typecheck]
+
+# List of decorators that produce context managers, such as
+# contextlib.contextmanager. Add to this list to register other decorators that
+# produce valid context managers.
 contextmanager-decorators="contextlib.contextmanager"
+
+# List of members which are set dynamically and missed by pylint inference
+# system, and so shouldn't trigger E1101 when accessed. Python regular
+# expressions are accepted.
 generated-members="numpy.*,np.*,pyspark.sql.functions,collect_list"
+
+# Tells whether missing members accessed in mixin class should be ignored. A
+# mixin class is detected if its name ends with "mixin" (case insensitive).
 ignore-mixin-members="yes"
+
 ignore-none="yes"
+
+# This flag controls whether pylint should warn about no-member and similar
+# checks whenever an opaque object is returned when inferring. The inference
+# can return multiple potential results while evaluating a Python object, but
+# some branches might not be evaluated, which results in partial inference. In
+# that case, it might be useful to still emit no-member and other checks for
+# the rest of the inferred objects.
 ignore-on-opaque-inference="yes"
+
+# List of class names for which member attributes should not be checked (useful
+# for classes with dynamically set attributes). This supports the use of
+# qualified names.
 ignored-classes="optparse.Values,thread._local,_thread._local,numpy,torch,swagger_client"
+
+# List of module names for which member attributes should not be checked
+# (useful for modules/projects where namespaces are manipulated during runtime
+# and thus existing member attributes cannot be deduced by static analysis. It
+# supports qualified module names, as well as Unix pattern matching.
 ignored-modules="numpy,torch,swagger_client,netCDF4,scipy"
+
+# Show a hint with possible names when a member name was not found. The aspect
+# of finding the hint is based on edit distance.
 missing-member-hint="yes"
+
+# The minimum edit distance a name should have in order to be considered a
+# similar match for a missing member name.
 missing-member-hint-distance=1
+
+# The total number of similar names that should be taken in consideration when
+# showing a hint for a missing member.
 missing-member-max-choices=1
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -723,15 +1402,32 @@ missing-member-max-choices=1
 #      ╰─▶ Settings for dummy variables, callbacks, and naming patterns
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.variables]
+# List of additional names supposed to be defined in builtins. Remember that
+# you should avoid to define new builtins when possible.
 additional-builtins="dbutils"
+
+# Tells whether unused global variables should be treated as a violation.
 allow-global-unused-variables="yes"
+
+# List of strings which can identify a callback function by name. A callback
+# name must start or end with one of those strings.
 callbacks= [
     "cb_",
     "_cb"
 ]
+
+# A regular expression matching the name of dummy variables (i.e. expectedly not used).
 dummy-variables-rgx="_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_"
+
+# Argument names that match this expression will be ignored. Default to name
+# with leading underscore
 ignored-argument-names="_.*|^ignored_|^unused_"
+
+# Tells whether we should check for unused import in __init__ files.
 init-import="no"
+
+# List of qualified module names which can have objects that can redefine
+# builtins.
 redefining-builtins-modules="six.moves,past.builtins,future.builtins,builtins,io"
 
 # {%- endif %}
@@ -744,7 +1440,36 @@ redefining-builtins-modules="six.moves,past.builtins,future.builtins,builtins,io
 #      🔗 https://docs.pytest.org/en/7.2.x/reference/customize.html
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pytest.ini_options]
-addopts = "--strict-markers --cov-report xml:coverage.xml --cov src --cov-fail-under 0 --cov-append --annotate-failures -m 'not integration'"
+addopts = [
+    "--disable-warnings",
+    # Error if unknown markers are used
+    "--strict-markers",
+    # Use short traceback format
+    "--tb=short",
+    # Stop after 3 failures
+    "--maxfail=3",
+    # Show extra test summary info for skipped/xfail
+    "-ra",
+    # Directory or module to measure
+    "--cov=src",
+    # Show report in terminal, with missing lines
+    "--cov-report=term-missing",
+    # Generate human-readable HTML report
+    "--cov-report=html:coverage_html",
+    # Output coverage.xml (for CI tools)
+    "--cov-report=xml:coverage.xml",
+    "--cov-report=json:coverage.json",
+    # Use settings from pyproject.toml (for coverage.py)
+    "--cov-config=pyproject.toml",
+    # Do not generate report if test run fails
+    "--no-cov-on-fail",
+    # Fail if total coverage is under 0%
+    "--cov-fail-under=0",
+    "--cov-append",
+    #"--annotate-failures",
+    #"-m 'not integration'"
+]
+
 junit_family = "xunit2"
 markers = [
     "integration: marks as integration test",
@@ -768,26 +1493,860 @@ testpaths = ["tests"]
 #      🔗 https://docs.astral.sh/ruff/configuration/
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.ruff]
-exclude = ["tests", "docs", "build"]
+exclude = [
+    "tests",
+    "docs",
+    "build",
+    ".venv",
+    "dist",
+    "__pycache__",
+    "migrations",
+    ".eggs",
+    "*.egg-info",
+    ".tox",
+    "node_modules"
+]
+
 extend-select = ["I", "B", "C4", "SIM", "T20"]
+
+# Fix issues automatically if possible
+fix = true
+
 ignore = ["E501"]
+
 indent-width = 4
+
+## Set maximum number of reported violations
+## (useful to prevent noisy CI runs)
+#limit = 500
+
+# Line length for formatting
 line-length = 120
-src = ["."]
+
+# Respect .gitignore patterns
+respect-gitignore = true
+
+# Directories to include in linting
+src = ["src", "tests"]
+# src = ["."]
+
+## Show full error codes in output
+#show-source = true
+
+# Target Python version
 target-version = "py311"
 
+# 🧼
 [tool.ruff.format]
-docstring-code-format = true
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
 
 [tool.ruff.lint]
-extend-select = ["I"]
-ignore = []
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
-[tool.ruff.lint.per-file-ignores]
-# Don't complaine about unused imports in __init__.py
-"__init__.py" = ["F401", "F403"]
+extend-select = ["I"]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+
+# Ignore specific rules (example: D203 and D213 conflict)
+ignore = [
+    ## eradicate (ERA). For more, see eradicate on PyPI https://pypi.org/project/eradicate/
+
+    # Name: commented-out-code
+    # Message: Found commented-out code
+    # Rationale:
+    "ERA001",
+
+    ## flake8-bugbear (B). For more, see flake8-bugbear on PyPI https://pypi.org/project/flake8-bugbear/
+    ## * For related settings, see flake8-bugbear https://docs.astral.sh/ruff/settings/#lintflake8-bugbear
+
+    # Name: function-call-in-default-argument
+    # Message: Do not perform function call {name} in argument defaults; instead, perform the call within the function,
+    #          or read the default from a module-level singleton variable
+    # Rationale:
+    "B008",
+
+    # Name: empty-method-without-abstract-decorator
+    # Message: {name} is an empty method in an abstract base class, but has no abstract decorator
+    # Rationale:
+    "B027",
+
+    # mccabe (C90). For more, see mccabe on PyPI https://pypi.org/project/mccabe/
+    # * For related settings, see mccabe https://docs.astral.sh/ruff/settings/#lintmccabe
+
+    # Name: complex-structure
+    # Message: {name} is too complex ({complexity} > {max_complexity})
+    # Rationale:
+    "C901",
+
+    ## pydocstyle (D). For more, see pydocstyle on PyPI https://pypi.org/project/pydocstyle/
+    ## * For related settings, see pydocstyle https://docs.astral.sh/ruff/settings/#lintpydocstyle
+
+    # Name: incorrect-blank-line-before-class
+    # Message: 1 blank line required before class docstring
+    # Rationale:
+    "D203",
+
+    # Name: multi-line-summary-second-line
+    # Message: Multi-line docstring summary should start at the second line
+    # Rationale:
+    "D213",
+
+    ## pycodestyle (E, W). For more, see pycodestyle on PyPI https://pypi.org/project/pycodestyle/
+    ## * For related settings, see pycodestyle https://docs.astral.sh/ruff/settings/#lintpycodestyle
+    ### Error (E)
+
+    # Name: line-too-long
+    # Message: Line too long ({width} > {limit})
+    # Rationale:
+    "E501",
+
+    ## flake8-boolean-trap (FBT). For more, see flake8-boolean-trap on PyPI https://pypi.org/project/flake8-boolean-trap/
+    ## * For related settings, see flake8-boolean-trap https://docs.astral.sh/ruff/settings/#lintflake8-boolean-trap
+
+    # Name: boolean-positional-value-in-call
+    # Message: Boolean positional value in function call. like `dict.get(... True)`
+    # Rationale:
+    "FBT003",
+
+    ## Ruff-specific rules (RUF)
+
+    # Name: mutable-class-default
+    # Message: Mutable class attributes should be annotated with typing.ClassVar
+    # Rationale:
+    "RUF012",
+
+    ## flake8-simplify (SIM). For more, see flake8-simplify on PyPI https://pypi.org/project/flake8-simplify/
+
+    # Name: collapsible-if
+    # Message: Use a single if statement instead of nested if statements
+    # Rationale:
+    "SIM102"
+]
+
+# Preview unstable features (e.g. new lint rules, behaviors)
+preview = true
+
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+select = [
+
+    ## flake8-2020 (YTT). For more, see flake8-2020 on PyPI https://pypi.org/project/flake8-2020/
+
+    # Name: sys-version-slice3
+    # Message: sys.version[:3] referenced (python3.10), use sys.version_info
+    "YTT101",
+
+    # Name: sys-version2
+    # Message: sys.version[2] referenced (python3.10), use sys.version_info
+    "YTT102",
+
+    # Name: sys-version-cmp-str3
+    # Message: sys.version compared to string (python3.10), use sys.version_info
+    "YTT103",
+
+    # Name: sys-version-info0-eq3
+    # Message: sys.version_info[0] == 3 referenced (python4), use >=
+    "YTT201",
+
+    # Name: sys-version-info1-cmp-int
+    # Message: sys.version_info[1] compared to integer (python4), compare sys.version_info to tuple
+    "YTT203",
+
+    # Name: sys-version-info-minor-cmp-int
+    # Message: sys.version_info.minor compared to integer (python4), compare sys.version_info to tuple
+    "YTT204",
+
+    # Name: sys-version0
+    # Message: sys.version[0] referenced (python10), use sys.version_info
+    "YTT301",
+
+    # Name: sys-version-cmp-str10
+    # Message: sys.version compared to string (python10), use sys.version_info
+    "YTT302",
+
+    # Name: sys-version-slice1
+    # Message: sys.version[:1] referenced (python10), use sys.version_info
+    "YTT303",
+
+    ## flake8-annotations (ANN). For more, see flake8-annotations on PyPI https://pypi.org/project/flake8-annotations/
+    ## * For related settings, see flake8-annotations https://docs.astral.sh/ruff/settings/#lintflake8-annotations
+
+    # Name: missing-type-function-argument
+    # Message: Missing type annotation for function argument {name}
+    "ANN001",
+
+    # Name: missing-type-args
+    # Message: Missing type annotation for *{name}
+    "ANN002",
+
+    # Name: missing-type-kwargs
+    # Message: Missing type annotation for **{name}
+    "ANN003",
+
+    # Name: missing-return-type-undocumented-public-function
+    # Message: Missing return type annotation for public function {name}
+    "ANN201",
+
+    # Name: missing-return-type-private-function
+    # Message: Missing return type annotation for private function {name}
+    "ANN202",
+
+    # Name: missing-return-type-special-method
+    # Message: Missing return type annotation for special method {name}
+    "ANN204",
+
+    # Name: missing-return-type-static-method
+    # Message: Missing return type annotation for staticmethod {name}
+    "ANN205",
+
+    # Name: missing-return-type-class-method
+    # Message: Missing return type annotation for classmethod {name}
+    "ANN206",
+
+    ## flake8-async (ASYNC)
+    ## * For more, see flake8-async on PyPI https://pypi.org/project/flake8-async/
+
+    # Name: cancel-scope-no-checkpoint
+    # Message: A with {method_name}(...): context does not contain any await statements.
+    #          This makes it pointless, as the timeout can only be triggered by a checkpoint.
+    "ASYNC100",
+
+    # Name: trio-sync-call
+    # Message: Call to {method_name} is not immediately awaited
+    "ASYNC105",
+
+    # Name: async-function-with-timeout
+    # Message: Async function definition with a timeout parameter
+    "ASYNC109",
+
+    # Name: async-busy-wait
+    # Message: Use {module}.Event instead of awaiting {module}.sleep in a while loop
+    "ASYNC110",
+
+    # Name: async-zero-sleep
+    # Message: Use {module}.lowlevel.checkpoint() instead of {module}.sleep(0)
+    "ASYNC115",
+
+    # Name: blocking-http-call-in-async-function
+    # Message: Async functions should not call blocking HTTP methods
+    "ASYNC210",
+
+    # Name: create-subprocess-in-async-function
+    # Message: Async functions should not create subprocesses with blocking methods
+    "ASYNC220",
+
+    # Name: run-process-in-async-function
+    # Message: Async functions should not run processes with blocking methods
+    "ASYNC221",
+
+    # Name: wait-for-process-in-async-function
+    # Message: Async functions should not wait on processes with blocking methods
+    "ASYNC222",
+
+    # Name: blocking-open-call-in-async-function
+    # Message: Async functions should not open files with blocking methods like open
+    "ASYNC230",
+
+    # Name: blocking-sleep-in-async-function
+    # Message: Async functions should not call time.sleep
+    "ASYNC251",
+
+    ## flake8-bandit (S)
+    ## * For more, see flake8-bandit on PyPI https://pypi.org/project/flake8-bandit/
+    ## * For related settings, see flake8-bandit https://docs.astral.sh/ruff/settings/#lintflake8-bandit
+
+    # Name: assert
+    # Message: Use of assert detected
+    "S101",
+
+    # Name: exec-builtin
+    # Message: Use of exec detected
+    "S102",
+
+    # Name: bad-file-permissions
+    # Message: os.chmod setting a permissive mask {mask:#o} on file or directory
+    "S103",
+
+    # Name: hardcoded-bind-all-interfaces
+    # Message: Possible binding to all interfaces
+    "S104",
+
+    # Name: hardcoded-password-string
+    # Message: Possible hardcoded password assigned to: "{}"
+    "S105",
+
+    # Name: hardcoded-password-func-arg
+    # Message: Possible hardcoded password assigned to argument: "{}"
+    "S106",
+
+    # Name: hardcoded-password-default
+    # Message: Possible hardcoded password assigned to function default: "{}"
+    "S107",
+
+    # Name: hardcoded-temp-file
+    # Message: Probable insecure usage of temporary file or directory: "{}"
+    "S108",
+
+    # Name: try-except-pass
+    # Message: try-except-pass detected, consider logging the exception
+    "S110",
+
+    # Name: try-except-continue
+    # Message: try-except-continue detected, consider logging the exception
+    "S112",
+
+    # Name: request-without-timeout
+    # Message: Probable use of {module} call without timeout
+    "S113",
+
+    # Name: flask-debug-true
+    # Message: Use of debug=True in Flask app detected
+    "S201",
+
+    # Name: tarfile-unsafe-members
+    # Message: Uses of tarfile.extractall()
+    "S202",
+
+    # Name: suspicious-pickle-usage
+    # Message: pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue
+    "S301",
+
+    # Name: suspicious-marshal-usage
+    # Message: Deserialization with the marshal module is possibly dangerous
+    "S302",
+
+    # Name: suspicious-insecure-hash-usage
+    # Message: Use of insecure MD2, MD4, MD5, or SHA1 hash function
+    "S303",
+
+    # Name: suspicious-insecure-cipher-usage
+    # Message: Use of insecure cipher, replace with a known secure cipher such as AES
+    "S304",
+
+    # Name: suspicious-insecure-cipher-mode-usage
+    # Message: Use of insecure block cipher mode, replace with a known secure mode such as CBC or CTR
+    "S305",
+
+    # Name: suspicious-mktemp-usage
+    # Message: Use of insecure and deprecated function (mktemp)
+    "S306",
+
+    # Name: suspicious-eval-usage
+    # Message: Use of possibly insecure function; consider using ast.literal_eval
+    "S307",
+
+    # Name: suspicious-mark-safe-usage
+    # Message: Use of mark_safe may expose cross-site scripting vulnerabilities
+    "S308",
+
+    # Name: suspicious-url-open-usage
+    # Message: Audit URL open for permitted schemes. Allowing use of file: or custom schemes is often unexpected.
+    "S310",
+
+    # Name: suspicious-non-cryptographic-random-usage
+    # Message: Standard pseudo-random generators are not suitable for cryptographic purposes
+    "S311",
+
+    # Name: suspicious-telnet-usage
+    # Message: Telnet is considered insecure. Use SSH or some other encrypted protocol.
+    "S312",
+
+    # Name: suspicious-xmlc-element-tree-usage
+    # Message: Using xml to parse untrusted data is known to be vulnerable to XML attacks; use defusedxml equivalents
+    "S313",
+
+    # Name: suspicious-xml-element-tree-usage
+    # Message: Using xml to parse untrusted data is known to be vulnerable to XML attacks; use defusedxml equivalents
+    "S314",
+
+    # Name: suspicious-xml-expat-reader-usage
+    # Message: Using xml to parse untrusted data is known to be vulnerable to XML attacks; use defusedxml equivalents
+    "S315",
+
+    # Name: suspicious-xml-expat-builder-usage
+    # Message: Using xml to parse untrusted data is known to be vulnerable to XML attacks; use defusedxml equivalents
+    "S316",
+
+    # Name: suspicious-xml-sax-usage
+    # Message: Using xml to parse untrusted data is known to be vulnerable to XML attacks; use defusedxml equivalents
+    "S317",
+
+    # Name: suspicious-xml-mini-dom-usage
+    # Message: Using xml to parse untrusted data is known to be vulnerable to XML attacks; use defusedxml equivalents
+    "S318",
+
+    # Name: suspicious-xml-pull-dom-usage
+    # Message: Using xml to parse untrusted data is known to be vulnerable to XML attacks; use defusedxml equivalents
+    "S319",
+
+    # Name: suspicious-ftp-lib-usage
+    # Message: FTP-related functions are being called. FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol.
+    "S321",
+
+    # Name: suspicious-unverified-context-usage
+    # Message: Python allows using an insecure context via the _create_unverified_context that reverts to the previous behavior that does not validate certificates or perform hostname checks.
+    "S323",
+
+    # Name: hashlib-insecure-hash-function
+    # Message: Probable use of insecure hash functions in {library}: {string}
+    "S324",
+
+    # Name: request-with-no-cert-validation
+    # Message: Probable use of {string} call with verify=False disabling SSL certificate checks
+    "S501",
+
+    # Name: ssl-insecure-version
+    # Message: Call made with insecure SSL protocol: {protocol}
+    "S502",
+
+    # Name: ssl-with-bad-defaults
+    # Message: Argument default set to insecure SSL protocol: {protocol}
+    "S503",
+
+    # Name: ssl-with-no-version
+    # Message: ssl.wrap_socket called without an `ssl_version``
+    "S504",
+
+    # Name: weak-cryptographic-key
+    # Message: {cryptographic_key} key sizes below {minimum_key_size} bits are considered breakable
+    "S505",
+
+    # Name: unsafe-yaml-load
+    # Message: Probable use of unsafe loader {name} with yaml.load. Allows instantiation of arbitrary objects. Consider yaml.safe_load.
+    "S506",
+
+    # Name: ssh-no-host-key-verification
+    # Message: Paramiko call with policy set to automatically trust the unknown host key
+    "S507",
+
+    # Name: snmp-insecure-version
+    # Message: The use of SNMPv1 and SNMPv2 is insecure. Use SNMPv3 if able.
+    "S508",
+
+    # Name: snmp-weak-cryptography
+    # Message: You should not use SNMPv3 without encryption. noAuthNoPriv & authNoPriv is insecure.
+    "S509",
+
+    # Name: paramiko-call
+    # Message: Possible shell injection via Paramiko call; check inputs are properly sanitized
+    "S601",
+
+    # Name: subprocess-popen-with-shell-equals-true
+    # Message: subprocess call with shell=True seems safe, but may be changed in the future; consider rewriting without shell
+    "S602",
+
+    # Name: subprocess-without-shell-equals-true
+    # Message: subprocess call: check for execution of untrusted input
+    "S603",
+
+    # Name: call-with-shell-equals-true
+    # Message: Function call with shell=True parameter identified, security issue
+    "S604",
+
+    # Name: start-process-with-a-shell
+    # Message: Starting a process with a shell: seems safe, but may be changed in the future;
+    #          consider rewriting without shell
+    "S605",
+
+    # Name: start-process-with-no-shell
+    # Message: Starting a process without a shell
+    "S606",
+
+    # Name: start-process-with-partial-path
+    # Message: Starting a process with a partial executable path
+    "S607",
+
+    # Name: hardcoded-sql-expression
+    # Message: Possible SQL injection vector through string-based query construction
+    "S608",
+
+    # Name: unix-command-wildcard-injection
+    # Message: Possible wildcard injection in call due to * usage
+    "S609",
+
+    # Name: django-extra
+    # Message: Use of Django extra can lead to SQL injection vulnerabilities
+    "S610",
+
+    # Name: django-raw-sql
+    # Message: Use of RawSQL can lead to SQL injection vulnerabilities
+    "S611",
+
+    # Name: logging-config-insecure-listen
+    # Message: Use of insecure logging.config.listen detected
+    "S612",
+
+    # Name: jinja2-autoescape-false
+    # Message: Using jinja2 templates with autoescape=False is dangerous and can lead to XSS.
+    #          Ensure autoescape=True or use the select_autoescape function.
+    "S701",
+
+    # Name: mako-templates
+    # Message: Mako templates allow HTML and JavaScript rendering by default and are inherently open to XSS attacks
+    "S702",
+
+    # Name: unsafe-markup-use
+    # Message: Unsafe use of {name} detected
+    "S704",
+
+    ## flake8-blind-except (BLE). For more, see flake8-blind-except on PyPI https://pypi.org/project/flake8-blind-except/
+
+    # Name: Name: blind-except
+    # Message: Do not catch blind exception: {name}
+    "BLE001",
+
+    ## flake8-boolean-trap (FBT). For more, see flake8-boolean-trap on PyPI https://pypi.org/project/flake8-boolean-trap/
+    ## * For related settings, see flake8-boolean-trap https://docs.astral.sh/ruff/settings/#lintflake8-boolean-trap
+
+    # Name: Name: boolean-type-hint-positional-argument
+    # Message: Boolean-typed positional argument in function definition
+    "FBT001",
+
+    # Name: Name: boolean-default-value-positional-argument
+    # Message: Boolean default positional argument in function definition
+    "FBT002",
+
+    # Name: Name: boolean-positional-value-in-call
+    # Message: Boolean positional value in function call
+    "FBT003",
+
+    ## flake8-bugbear (B). For more, see flake8-bugbear on PyPI https://pypi.org/project/flake8-bugbear/
+    ## * For related settings, see flake8-bugbear https://docs.astral.sh/ruff/settings/#lintflake8-bugbear
+
+    # Name: unary-prefix-increment-decrement
+    # Message: Python does not support the unary prefix increment operator (++)
+    "B002",
+
+    # Name: assignment-to-os-environ
+    # Message: Assigning to os.environ doesn't clear the environment
+    "B003",
+
+    # Name: unreliable-callable-check
+    # Message: Using hasattr(x, "__call__") to test if x is callable is unreliable.
+    #          Use callable(x) for consistent results.
+    "B004",
+
+    # Name: strip-with-multi-characters
+    # Message: Using .strip() with multi-character strings is misleading
+    "B005",
+
+    # Name: mutable-argument-default
+    # Message: Do not use mutable data structures for argument defaults
+    "B006",
+
+    # Name: unused-loop-control-variable
+    # Message: Loop control variable {name} not used within loop body
+    "B007",
+
+    # Name: get-attr-with-constant
+    # Message: Do not call getattr with a constant attribute value. It is not any safer than normal property access.
+    "B009",
+
+    # Name: set-attr-with-constant
+    # Message: Do not call setattr with a constant attribute value. It is not any safer than normal property access.
+    "B010",
+
+    # Name: assert-false
+    # Message: Do not assert False (python -O removes these calls), raise AssertionError()
+    "B011",
+
+    # Name: jump-statement-in-finally
+    # Message: {name} inside finally blocks cause exceptions to be silenced
+    "B012",
+
+    # Name: redundant-tuple-in-exception-handler
+    # Message: A length-one tuple literal is redundant in exception handlers
+    "B013",
+
+    # Name: duplicate-handler-exception
+    # Message: Exception handler with duplicate exception: {name}
+    "B014",
+
+    # Name: useless-comparison
+    # Message: Pointless comparison. Did you mean to assign a value? Otherwise, prepend assert or remove it.
+    "B015",
+
+    # Name: raise-literal
+    # Message: Cannot raise a literal. Did you intend to return it or raise an Exception?
+    "B016",
+
+    # Name: assert-raises-exception
+    # Message: Do not assert blind exception: {exception}
+    "B017",
+
+    # Name: useless-expression
+    # Message: Found useless expression. Either assign it to a variable or remove it.
+    "B018",
+
+    # Name: cached-instance-method
+    # Message: Use of functools.lru_cache or functools.cache on methods can lead to memory leaks
+    "B019",
+
+    # Name: loop-variable-overrides-iterator
+    # Message: Loop control variable {name} overrides iterable it iterates
+    "B020",
+
+    # Name: f-string-docstring
+    # Message: f-string used as docstring. Python will interpret this as a joined string, rather than a docstring.
+    "B021",
+
+    # Name: useless-contextlib-suppress
+    # Message: No arguments passed to contextlib.suppress.
+    #          No exceptions will be suppressed and therefore this context manager is redundant
+    "B022",
+
+    # Name: function-uses-loop-variable
+    # Message: Function definition does not bind loop variable {name}
+    "B023",
+
+    # Name: abstract-base-class-without-abstract-method
+    # Message: {name} is an abstract base class, but it has no abstract methods or properties
+    "B024",
+
+    # Name: duplicate-try-block-exception
+    # Message: try-except* block with duplicate exception {name}
+    "B025",
+
+    # Name: star-arg-unpacking-after-keyword-arg
+    # Message: Star-arg unpacking after a keyword argument is strongly discouraged
+    "B026",
+
+    # Name: empty-method-without-abstract-decorator
+    # Message: {name} is an empty method in an abstract base class, but has no abstract decorator
+    "B027",
+
+    # Name: no-explicit-stacklevel
+    # Message: No explicit stacklevel keyword argument found
+    "B028",
+
+    # Name: except-with-empty-tuple
+    # Message: Using except* (): with an empty tuple does not catch anything; add exceptions to handle
+    "B029",
+
+    # Name: except-with-non-exception-classes
+    # Message: except* handlers should only be exception classes or tuples of exception classes
+    "B030",
+
+    # Name: reuse-of-groupby-generator
+    # Message: Using the generator returned from itertools.groupby() more than once will do nothing on the second usage
+    "B031",
+
+    # Name: unintentional-type-annotation
+    # Message: Possible unintentional type annotation (using :). Did you mean to assign (using =)?
+    "B032",
+
+    # Name: duplicate-value
+    # Message: Sets should not contain duplicate item {value}
+    "B033",
+
+    # Name: re-sub-positional-args
+    # Message: {method} should pass {param_name} and flags as keyword arguments to avoid confusion
+    #          due to unintuitive argument positions
+    "B034",
+
+    # Name: static-key-dict-comprehension
+    # Message: Dictionary comprehension uses static key: {key}
+    "B035",
+
+    # Name: mutable-contextvar-default
+    # Message: Do not use mutable data structures for ContextVar defaults
+    "B039",
+
+    # Name: raise-without-from-inside-except
+    # Message: Within an except* clause, raise exceptions with raise ... from err or raise ... from None to
+    #          distinguish them from errors in exception handling
+    "B904",
+
+    # Name: zip-without-explicit-strict
+    # Message: zip() without an explicit strict= parameter
+    "B905",
+
+    # Name: batched-without-explicit-strict
+    # Message: itertools.batched() without an explicit strict parameter
+    "B911",
+
+    ## flake8-builtins (A). For more, see flake8-builtins on PyPI https://pypi.org/project/flake8-builtins/
+    ## * For related settings, see flake8-builtins https://docs.astral.sh/ruff/settings/#lintflake8-builtins
+
+    # Name: builtin-variable-shadowing
+    # Message: Variable {name} is shadowing a Python builtin
+    "A001",
+
+    # Name: builtin-argument-shadowing
+    # Message: Function argument {name} is shadowing a Python builtin
+    "A002",
+
+    # Name: builtin-attribute-shadowing
+    # Message: Python builtin is shadowed by class attribute {name} from {row}
+    "A003",
+
+    # Name: builtin-import-shadowing
+    # Message: Import {name} is shadowing a Python builtin
+    "A004",
+
+    # Name: stdlib-module-shadowing
+    # Message: Module {name} shadows a Python standard-library module
+    "A005",
+
+    # Name: builtin-lambda-argument-shadowing
+    # Message: Lambda argument {name} is shadowing a Python builtin
+    "A006",
+
+    ## flake8-commas (COM). For more, see flake8-commas on PyPI https://pypi.org/project/flake8-commas/
+
+    # Name: Name: missing-trailing-comma
+    # Message: Trailing comma missing
+    "COM812",
+
+    # Name: Name: trailing-comma-on-bare-tuple
+    # Message: Trailing comma on bare tuple prohibited
+    "COM818",
+
+    # Name: Name: prohibited-trailing-comma
+    # Message: Trailing comma prohibited
+    "COM819",
+
+    # flake8-comprehensions (C4). For more, see flake8-comprehensions on PyPI https://pypi.org/project/flake8-comprehensions/
+    # * For related settings, see flake8-comprehensions https://docs.astral.sh/ruff/settings/#lintflake8-comprehensions
+
+    # Name: unnecessary-generator-list
+    # Message: Unnecessary generator (rewrite using list())
+    "C400",
+
+    # Name: unnecessary-generator-set
+    # Message: Unnecessary generator (rewrite using set())
+    "C401",
+
+    # Name: unnecessary-generator-dict
+    # Message: Unnecessary generator (rewrite as a dict comprehension)
+    "C402",
+
+    # Name: unnecessary-list-comprehension-set
+    # Message: Unnecessary list comprehension (rewrite as a set comprehension)
+    "C403",
+
+    # Name: unnecessary-list-comprehension-dict
+    # Message: Unnecessary list comprehension (rewrite as a dict comprehension)
+    "C404",
+
+    # Name: unnecessary-literal-set
+    # Message: Unnecessary {kind} literal (rewrite as a set literal)
+    "C405",
+
+    # Name: unnecessary-literal-dict
+    # Message: Unnecessary {obj_type} literal (rewrite as a dict literal)
+    "C406",
+
+    # Name: unnecessary-collection-call
+    # Message: Unnecessary {kind}() call (rewrite as a literal)
+    "C408",
+
+    # Name: unnecessary-literal-within-tuple-call
+    # Message: Unnecessary list literal passed to tuple() (rewrite as a tuple literal)
+    "C409",
+
+    # Name: unnecessary-literal-within-list-call
+    # Message: Unnecessary list literal passed to list() (remove the outer call to list())
+    "C410",
+
+    # Name: unnecessary-list-call
+    # Message: Unnecessary list() call (remove the outer call to list())
+    "C411",
+
+    # Name: unnecessary-call-around-sorted
+    # Message: Unnecessary {func}() call around sorted()
+    "C413",
+
+    # Name: unnecessary-double-cast-or-process
+    # Message: Unnecessary {inner}() call within {outer}()
+    "C414",
+
+    # Name: unnecessary-subscript-reversal
+    # Message: Unnecessary subscript reversal of iterable within {func}()
+    "C415",
+
+    # Name: unnecessary-comprehension
+    # Message: Unnecessary {kind} comprehension (rewrite using {kind}())
+    "C416",
+
+    # Name: unnecessary-map
+    # Message: Unnecessary map() usage (rewrite using a {object_type})
+    "C417",
+
+    # Name: unnecessary-literal-within-dict-call
+    # Message: Unnecessary dict {kind} passed to dict() (remove the outer call to dict())
+    "C418",
+
+    # Name: unnecessary-comprehension-in-call
+    # Message: Unnecessary list comprehension
+    "C419",
+
+    # Name: unnecessary-dict-comprehension-for-iterable
+    # Message: Unnecessary dict comprehension for iterable; use dict.fromkeys instead
+    "C420"
+]
+unfixable = [
+    # Don't touch unused imports
+    "F401"
+]
+
+#[tool.ruff.lint.flake8-tidy-imports]
+#ban-relative-imports = "all"
 
 [tool.ruff.lint.isort]
 known-first-party = ["template_python", "tests"]
+
+[tool.ruff.lint.per-file-ignores]
+# Limit how many issues to show per file (good for CI)
+# Don't complaine about unused imports in __init__.py
+"__init__.py" = ["F401", "F403"]
+"tests/*" = ["D"]
+"tests/**/*.py" = ["D"]
+
+[tool.ruff.lint.pydocstyle]
+# "google" or "numpy", "pep257", etc.
+convention = "google"
+add-ignore= [
+    "D100", # Missing docstring in public module
+    "D101", # Missing docstring in public class
+    "D102", # Missing docstring in public method
+    "D103", # Missing docstring in public function
+    "D104", # Missing docstring in public package
+    "D105", # Missing docstring in magic method
+    "D106", # Missing docstring in public nested class
+    "D107", # Missing docstring in __init__
+    "D200", # One-line docstring should fit on one line with quotes
+    "D201", # No blank lines allowed before function docstring
+    "D202", # No blank lines allowed after function docstring
+    "D211", # No blank lines allowed before class docstring
+    "D413" # Missing blank line after last section
+]
+#match = "(?!test)(?!setup)[^\._].*\.py"
+#match-dir = "(?!tests)(?!docs)[^\.].*"
 
 # {%- endif %}

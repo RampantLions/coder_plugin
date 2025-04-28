@@ -26,23 +26,27 @@ version = release
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "sphinx.ext.autodoc",
+    "sphinx.ext.autodoc", # Automatically document docstrings
     "sphinx.ext.doctest",
-    "sphinx.ext.intersphinx",
+    "sphinx.ext.intersphinx", # Link to other projects' documentation
     "sphinx.ext.ifconfig",
-    "sphinx.ext.viewcode",
+    "sphinx.ext.viewcode", # Add links to highlighted source code
     "sphinx.ext.githubpages",
     "sphinx.ext.autosummary",
-    "sphinx.ext.napoleon",
+    "sphinx.ext.napoleon", # Support for NumPy and Google style docstrings
     "sphinx_autodoc_typehints",
+    'sphinx.ext.todo',  # Support for TODO entries
     "sphinx_copybutton",
 ]
 
 templates_path = ['_templates']
 exclude_patterns = []
 
-autosummary_generate = True
 autodoc_class_attributes = False
+
+# Order members as they appear in the source code
+autodoc_member_order = 'bysource'
+autosummary_generate = True
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -64,6 +68,16 @@ autodoc_default_options = {
 # Napoleon settings
 napoleon_include_init_with_doc = True
 napoleon_include_private_with_doc = True
+napoleon_google_docstring = True     # Enable Google-style docstrings
+napoleon_numpy_docstring = True      # Enable NumPy-style docstrings
+
+# todo config
+todo_include_todos = True            # Show TODO entries in the output
+
+# intersphinx config
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+}
 
 # -- Custom autodoc-skip-member handler --------------------------------------
 

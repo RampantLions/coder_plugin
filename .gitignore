@@ -179,3 +179,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+/docs/source/generated/
+/coverage_html/
+/coverage.xml
+/coverage.json
