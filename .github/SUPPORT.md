@@ -1,58 +1,71 @@
 <!-- BEGIN LiminalCognition LLC SUPPORT.MD V0.0.5 BLOCK -->
 
-# 📋 Support
-
-coder_plugin: coder_plugin
+# 🛡 Support Policy
 
 Thank you for using **Coder Plugin**!
 
-If you encounter issues, you have the following support options:
+We are committed to helping users find solutions where possible through community-supported channels and documentation.
 
 ---
 
-### 🚑 How To File An Issue
+## 🚑 How to File an Issue
 
-This project uses GitHub Issues to track bugs and feature requests. Please search the existing
-issues before filing new issues to avoid duplicates.  For new issues, file your bug or
-feature request as a new Issue.
+This project uses GitHub Issues to track bug reports and feature requests.
 
-- Submit an issue on [GitHub Issues](https://github.com/RampantLions/coder_plugin/issues).
+- Search [existing issues](https://github.com/RampantLions/coder_plugin/issues) before opening a new one.
+- If no matching issue exists, [create a new issue](https://github.com/RampantLions/coder_plugin/issues/new/choose).
 
 Please include:
 
-- Steps to reproduce
+- Steps to reproduce the issue
 - Expected behavior
 - Actual behavior
-- Environment details (OS, Python version)
+- Environment details (OS, Python version, dependencies)
 
-For help and questions about using this project, please **REPO MAINTAINER: INSERT INSTRUCTIONS HERE
-FOR HOW TO ENGAGE REPO OWNERS OR COMMUNITY FOR HELP. COULD BE A STACK OVERFLOW TAG OR OTHER
-CHANNEL. WHERE WILL YOU HELP PEOPLE?**.
+Providing detailed and clear reports helps maintainers diagnose and resolve issues more quickly.
 
 ---
 
-### 📚 Documentation
+## 📚 Documentation and Usage Help
 
-See the [README](./README.md) and project [Wiki](https://github.com/RampantLions/coder_plugin/wiki) for usage examples.
+For usage instructions, examples, and project architecture, see:
 
----
-
-### 🔒 Security Issues
-
-For security-related concerns, see [SECURITY.md](./SECURITY.md).
+- [README](./README.md)
+- [Wiki](https://github.com/RampantLions/coder_plugin/wiki)
 
 ---
 
-### 💬 Other Questions
+## 💬 Getting Help / Asking Questions
 
-Feel free to open a GitHub Discussion if the repository supports it, or contact the maintainers listed in [AUTHORS.md](./AUTHORS.md).
+If you have questions that are not bug reports or feature requests:
+
+- Open a GitHub Discussion if available under the Discussions tab.
+- Alternatively, you may contact maintainers listed in [AUTHORS.md](./AUTHORS.md).
+
+Please avoid using GitHub Issues for general questions or usage help whenever possible.
 
 ---
 
-### TODO Support Policy
+## 🔒 Security Issues
 
-Support for this **PROJECT or PRODUCT** is limited to the resources listed above.
+Security vulnerabilities should **not** be reported through GitHub Issues.
+
+Instead, please follow the instructions in [SECURITY.md](./SECURITY.md) to report potential vulnerabilities privately.
 
 ---
+
+## 📜 Support Scope
+
+Support for **Coder Plugin** is limited to:
+
+- Community engagement via GitHub Issues and Discussions
+- Documentation resources (README, Wiki)
+- Contributor-maintained guidance where possible
+
+We do not offer commercial support guarantees or service-level agreements.
+
+---
+
+Thank you again for using **Coder Plugin** and being part of the community!
 
 <!-- END LiminalCognition LLC SUPPORT.MD BLOCK -->

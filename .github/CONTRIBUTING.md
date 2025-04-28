@@ -1,237 +1,161 @@
-<!-- BEGIN LiminalCognition LLC CONTRIBUTING.MD V0.0.5 BLOCK -->
+<!-- BEGIN LiminalCognition LLC CONTRIBUTING.MD V0.0.1 BLOCK -->
 
-<p>
+# 🤝 Contributing to `coder_plugin`
 
-</p>
+First off, thank you for taking the time to contribute to `coder_plugin`!  
+We welcome contributions of all kinds — bug fixes, new features, tests, documentation, and feedback.
 
-<h2 align="center">coder_plugin</h2>
+---
 
-## Contributing to `coder_plugin`
+## 📋 How to Contribute
 
-Contributions are welcome, and they are greatly appreciated!
-Every little bit helps, and credit will always be given.
+1. **Fork** the repository: [RampantLions/coder_plugin](https://github.com/RampantLions/coder_plugin)
+2. **Create a feature branch**:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Make your changes locally**.
+4. **Add tests** for your changes under the `tests/` directory.
+5. **Run linting and tests** to ensure your changes meet quality standards.
+6. **Commit** your changes:
+   ```bash
+   git commit -m "Short description of your changes."
+   ```
+7. **Push** your branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+8. **Open a Pull Request** (targeting the `dev` branch).
 
+---
 
+## 🛠️ Setting Up Local Development
 
-1.  Fork the Project, check out https://github.com/RampantLions/coder_plugin
-2.  Create your Feature Branch
-    (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
+You'll need:
 
+- **Python 3.11+**
+- **Git**
+- **uv** (or **pdm** for alternative setup)
 
-
-
-You can contribute in many ways:
-
-# Types of Contributions
-
-## Report Bugs
-
-Report bugs at https://github.com/RampantLions/coder_plugin/issues
-
-If you are reporting a bug, please include:
-
-- Your operating system name and version.
-- Any details about your local setup that might be helpful in troubleshooting.
-- Detailed steps to reproduce the bug.
-
-## Fix Bugs
-
-Look through the GitHub issues for bugs.
-Anything tagged with "bug" and "help wanted" is open to whoever wants to implement a fix for it.
-
-## Implement Features
-
-Look through the GitHub issues for features.
-Anything tagged with "enhancement" and "help wanted" is open to whoever wants to implement it.
-
-## Write Documentation
-
-coder_plugin could always use more documentation, whether as part of the official docs, in docstrings, or even on the web in blog posts, articles, and such.
-
-## Submit Feedback
-
-The best way to send feedback is to file an issue at https://github.com/RampantLions/coder_plugin/issues.
-
-If you are proposing a new feature:
-
-- Explain in detail how it would work.
-- Keep the scope as narrow as possible, to make it easier to implement.
-- Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
-
-# Get Started!
-
-Ready to contribute? Here's how to set up `coder_plugin` for local development.
-Please note this documentation assumes you already have `uv` and `Git` installed and ready to go.
-
-1. Fork the `coder_plugin` repo on GitHub.
-
-2. Clone your fork locally:
+Set up your environment:
 
 ```bash
-cd <directory_in_which_repo_should_be_created>
-git clone git@github.com:YOUR_NAME/coder_plugin.git
-```
-
-3. Now we need to install the environment. Navigate into the directory
-
-```bash
+# Clone your fork
+git clone git@github.com:YOUR_USERNAME/coder_plugin.git
 cd coder_plugin
-```
 
-Then, install and activate the environment with:
-
-```bash
+# Sync the environment
 uv sync
-```
 
-4. Install pre-commit to run linters/formatters at commit time:
-
-```bash
+# Install pre-commit hooks
 uv run pre-commit install
 ```
 
-5. Create a branch for local development:
+---
+
+## 🧪 Running Tests and Linters
+
+Before submitting a pull request:
 
 ```bash
-git checkout -b name-of-your-bugfix-or-feature
-```
-
-Now you can make your changes locally.
-
-6. Don't forget to add test cases for your added functionality to the `tests` directory.
-
-7. When you're done making changes, check that your changes pass the formatting tests.
-
-```bash
+# Run code checks
 make check
-```
 
-Now, validate that all unit tests are passing:
-
-```bash
+# Run tests
 make test
-```
 
-9. Before raising a pull request you should also run tox.
-   This will run the tests across different versions of Python:
-
-```bash
+# (Optional) Run across multiple Python versions
 tox
 ```
 
-This requires you to have multiple versions of python installed.
-This step is also triggered in the CI/CD pipeline, so you could also choose to skip this step locally.
-
-10. Commit your changes and push your branch to GitHub:
-
-```bash
-git add .
-git commit -m "Your detailed description of your changes."
-git push origin name-of-your-bugfix-or-feature
-```
-
-11. Submit a pull request through the GitHub website.
-
-# Pull Request Guidelines
-
-Before you submit a pull request, check that it meets these guidelines:
-
-1. The pull request should include tests.
-
-2. If the pull request adds functionality, the docs should be updated.
-   Put your new functionality into a function with a docstring, and add the feature to the list in `README.md`.
-
-
-# 📋 Contributing
-
-## coder_plugin: coder_plugin
-
-We welcome contributions to **Coder Plugin**!
-
-Please follow these guidelines:
+If you don't have all Python versions installed locally, the CI/CD pipeline will run this for you.
 
 ---
 
-### 🛠 Development Setup
+## 🧹 Code Style
 
-- Use **Python 3.11**.
-- Install dependencies via `hatch` or `uv`.
+- Follow **PEP8** and **black** formatting standards.
+- Use **ruff** for linting and **mypy** for type checking.
+- Ensure all public functions, methods, and classes have **clear docstrings**.
 
 ```bash
-hatch env create
-hatch run test
+make format
+make lint
 ```
 
 ---
 
-### 🧪 Testing
+<!-- github-only -->
 
-Run tests before submitting:
+## 🐛 Bug Reports
 
-```bash
-hatch run test
-```
+Found a bug? Please:
 
----
+- Search existing [issues](https://github.com/RampantLions/coder_plugin/issues) to see if it’s already reported.
+- If not, [open a new issue](https://github.com/RampantLions/coder_plugin/issues/new/choose) and provide:
+  - Your operating system and version
+  - Python version
+  - Exact reproduction steps
+  - Expected behavior vs. actual behavior
 
-### 🧹 Code Style
-
-Ensure code is formatted:
-
-```bash
-hatch run format
-hatch run lint
-```
-
-Follow PEP8.
-Use black, ruff, and mypy.
+📎 **Tip:** Including logs, screenshots, and code snippets helps us resolve bugs faster.
 
 ---
 
-### 🛡 Security Issues
+## ✨ Feature Requests
 
-Please do not open GitHub issues for security-related topics.
-Report them privately via security guidelines.
+Want to propose a new feature? Please:
+
+- [Open a feature request issue](https://github.com/RampantLions/coder_plugin/issues/new/choose).
+- Clearly explain:
+  - The problem it solves
+  - How it improves `coder_plugin`
+  - If possible, suggest a basic design or usage example
+
+---
+
+## 📚 Documentation Contributions
+
+Good documentation is critical!  
+You can contribute by:
+
+- Improving docstrings
+- Clarifying README sections
+- Writing guides, examples, or tutorials
 
 ---
 
-### 🙌 How to Contribute
+## 🔒 Security Issues
 
-1. Fork the repository.
-1. Create a branch (`git checkout -b feature/your-feature`).
-1. Commit your changes (`git commit -am 'Add feature'`).
-1. Push to the branch (`git push origin feature/your-feature`).
-1. Create a Pull Request.
+Please do **NOT** open GitHub issues for security vulnerabilities.  
+Instead, report them privately by contacting:
+
+📧 **[liminal.cognition@gmail.com](mailto:liminal.cognition@gmail.com)**
+
+We take security seriously and will respond promptly.
 
 ---
+
+## 📦 Pull Request Guidelines
+
+Before opening a Pull Request:
+
+- Ensure tests and linters pass (`pdm run test`, `pdm run lint`).
+- Update or add docstrings where appropriate.
+- Add unit tests for new or changed functionality.
+- Target your pull request against the `dev` branch, not `master`.
+- Keep pull requests focused: smaller PRs are easier to review and merge.
+
+📎 **Tip:** Reference related issues in your PR description using GitHub keywords like `Fixes #123`, `Closes #456`, etc.
+
+---
+
+## 📄 License
+
+By contributing, you agree that your contributions will be licensed under the [License](LICENSE).
+
+---
+
+Thank you again for helping make `coder_plugin` better! 🎉
 
 <!-- END LiminalCognition LLC CONTRIBUTING.MD BLOCK -->
-
-
-# Contributing to Zircon
-
-If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.
-When submitting code, please make every effort to follow existing conventions and style in order to keep the code as readable as possible.
-
-## Code
-- Zircon is written in Kotlin but you can add your contribution using *Java*
-- If you contribute *Java* code put it into `src/main/java`. If you kontribute Kotlin code it should go into `src/main/kotlin`
-- If you write implementation code for something put it into the `org.hexworks.zircon.internal` package
-  Conversely interfaces and code which expresses an external api should go to the `org.hexworks.zircon.api` package
-- If you add implementation code try to follow [the design philosophy behind Zircon](https://github.com/Hexworks/zircon/wiki/The-design-philosophy-behind-Zircon)
-- Make sure that you add unit tests for your code and
-- Check whether the build passes when creating a pull request
-
-## Submitting a PR
-- For every PR there should be an accompanying issue which the PR solves
-- The PR itself should only contain code which is the solution for the given issue
-- If you are a first time contributor check if there is a [suitable issue](https://github.com/Hexworks/zircon/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) for you
-
-## License
-
-By contributing your code, you agree to license your contribution under the terms of the [MIT](https://github.com/Hexworks/zircon/blob/master/LICENSE) license.
-All files are released with the MIT license.

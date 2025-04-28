@@ -39,6 +39,7 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Development Status :: 4 - Beta",
     "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
     "Intended Audience :: Developers",
     #  "License :: OSI Approved :: MIT License",
     #  "License :: OSI Approved :: BSD license",
@@ -47,6 +48,10 @@ classifiers = [
     #  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Natural Language :: English",
     "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -97,10 +102,14 @@ dev = [
 docs = [
     "sphinx>=7.2",
     "furo",
+    "piccolo-theme",
     "sphinx-autobuild",
     "sphinx-autodoc-typehints",
     "sphinx-copybutton",
+    "sphinx_github_role",
+    "sphinx-prompt",
     "sphinx-rtd-theme",
+    "sphinxemoji"
 ]
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -276,11 +285,47 @@ target-version = ['py311']
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 #   📈 Coverage HTML Report Output
-#      ╰─▶ Defines where HTML coverage reports are saved
+#      ╰─▶ Settings particular to HTML reporting, apply to HTML output, where appropriate.
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.coverage.html]
-# Output directory for HTML report
-directory = "htmlcov"
+# (string, default “htmlcov”) Where to write the HTML report files.
+directory = "docs/reports/coverage/html"
+
+# (string) The path to a file of CSS to apply to the HTML report. The file will be copied into the HTML output directory.
+# Don’t name it “style.css”. This CSS is in addition to the CSS normally used, though you can overwrite as many of the rules as you like.
+#extra_css = ""
+
+# (boolean) Should the HTML report include an indication on each line of which contexts executed the line.
+# See Dynamic contexts for details. https://coverage.readthedocs.io/en/latest/contexts.html#dynamic-contexts
+show_contexts = true
+
+# (boolean, defaulted from [report] skip_covered) Don’t include files in the report that are 100% covered files.
+# See Coverage summary: coverage report for more information.
+skip_covered = false
+
+# (boolean, defaulted from [report] skip_empty) Don’t include empty files (those that have 0 statements) in the report.
+# See Coverage summary: coverage report for more information.
+skip_empty = false
+
+# (string, default “Coverage report”) The title to use for the report. Note this is text, not HTML.
+title = "Coverage Report"
+
+# ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+#   📈 Coverage JSON Report Output
+#      ╰─▶ Defines where JSON coverage reports are saved
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[tool.coverage.json]
+
+# (string, default “coverage.json”) Where to write the JSON file.
+output = "docs/reports/coverage.json"
+
+# (boolean, default false) Controls if the JSON is outputted with white space formatted for
+# human consumption (True) or for minimum file size (False).
+pretty_print = true
+
+# (boolean, default false) Should the JSON report include an indication of which contexts executed
+# each line. See Dynamic contexts for details. https://coverage.readthedocs.io/en/latest/contexts.html#dynamic-contexts
+show_contexts = true
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 #   📈 Coverage Run Settings
@@ -308,28 +353,61 @@ exclude_lines = [
     '^assert False\b',
     '''^if __name__ == ['"]__main__['"]:$'''
 ]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod"
+]
 
 # Another way to enforce minimum coverage
 fail_under = 80
 
-# Show lines that are missing
+# (integer) The number of digits after the decimal point to display for reported coverage percentages.
+# The default is 0, displaying for example “87%”. A value of 2 will display percentages like “87.32%”.
+# This setting also affects the interpretation of the fail_under setting.
+precision = 2
+
+# (boolean, default False) When running a summary report, show missing lines.
+# See Coverage summary: coverage report for more information.
+# https://coverage.readthedocs.io/en/latest/cmd.html#cmd-report
 show_missing = true
 
-# Don’t report files 100% covered
+# (boolean, default False) Don’t report files that are 100% covered.
+# This helps you focus on files that need attention.
 skip_covered = false
 
+# (boolean, default False) Don’t report files that have no executable code (such as __init__.py files).
 skip_empty = true
 
-# Decimal precision in coverage output
-precision = 2
+# (string, default “Name”) Sort the text report by the named column. Allowed values are “Name”,
+# “Stmts”, “Miss”, “Branch”, “BrPart”, or “Cover”. Prefix with - for descending sort (for example, “-cover”).
+sort = "Name"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 #   📈 Coverage XML Report Output
 #      ╰─▶ Defines where XML coverage reports are saved
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.coverage.xml]
-# Output file path for XML report
-output = "coverage.xml"
+
+# (string, default “coverage.xml”) Where to write the XML report.
+output = "docs/reports/coverage.xml"
+
+# (integer, default 99) Controls which directories are identified as packages in the report.
+# Directories deeper than this depth are not reported as packages. The default is that all
+# directories are reported as packages.
+package_depth = 99
 
 # {% if cookiecutter.flake8_enabled == "y" %}
 
@@ -599,7 +677,7 @@ disallow_untyped_defs = true
 
 enable_error_code = ["ignore-without-code", "truthy-bool"]
 
-exclude = ["tests/"]
+exclude = ["tests/", "__pypackages__/", ".github/", "docs/", "build/", "dist/", ".venv/", ".tox/"]
 
 # Source paths to check
 files = ["src"]
@@ -818,15 +896,15 @@ repos = [
       { id = "check-xml" },
       { id = "check-yaml" },
       { id = "check-symlinks" },
-      { id = "check-added-large-files" },
+      { id = "check-added-large-files", name = "Check for added large files" },
       { id = "check-merge-conflict" },
       { id = "check-case-conflict" },
       { id = "check-executables-have-shebangs" },
       { id = "check-shebang-scripts-are-executable" },
       { id = "debug-statements" },
+      { id = "end-of-file-fixer", name = "Fix End of Files"},
       { id = "mixed-line-ending" },
-      { id = "end-of-file-fixer" },
-      { id = "trailing-whitespace" },
+      { id = "trailing-whitespace", name = "Trim Trailing Whitespace" },
       { id = "requirements-txt-fixer" },
   ] },
 
@@ -867,6 +945,9 @@ repos = [
       { id = "check-manifest", stages = ["manual"] },
   ] },
 
+  { repo = "https://github.com/pre-commit/mirrors-prettier", rev = "v2.6.0", hooks = [
+      { id = "prettier" },
+  ]},
   { repo = "https://github.com/pre-commit/mirrors-sphinx", rev = "v7.2.6", hooks = [
     { id = "sphinx-build", args = ["-b", "html", "docs/source", "docs/build"] },
   ] }
@@ -1216,8 +1297,8 @@ logging-modules="logging"
 #      ╰─▶ Global pylint settings like ignores and recursion limits
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.master]
-ignore = ["tests", "docs", "build"]
-ignore-patterns = ["tests/.*", ".*_test.py", "docs/.*"]
+ignore = ["tests/", "__pypackages__/", ".github/", "docs/", "build/", "dist/", ".venv/", ".tox/"]
+ignore-patterns = ["tests/.*", ".*_test.py", "docs/.*", "__pypackages__/*", ".github/*", "build/*", "dist/*", ".venv/*", ".tox/*"]
 init-hook = "import sys; sys.path.append('src')"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -1249,7 +1330,7 @@ enable="c-extension-no-member"
 
 # ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 #   🧹 Pylint Miscellaneous Settings
-#      ╰─▶ Miscellaneous rules including TODO note detection
+#      ╰─▶ Miscellaneous rules including TO DO note detection
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pylint.miscellaneous]
 # List of note tags to take in consideration, separated by a comma.
@@ -1505,7 +1586,8 @@ exclude = [
     ".eggs",
     "*.egg-info",
     ".tox",
-    "node_modules"
+    "node_modules",
+    ".github"
 ]
 
 extend-select = ["I", "B", "C4", "SIM", "T20"]

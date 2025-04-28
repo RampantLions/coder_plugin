@@ -4,14 +4,17 @@
 root = true
 
 [*]
+charset = utf-8
 end_of_line = lf
 insert_final_newline = true
-indent_style = space
 indent_size = 4
+indent_style = space
+max_line_length = 120
 tab_width = 4
-charset = utf-8
 trim_trailing_whitespace = true
-max_line_length = 100
+
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
 
 [*.json]
 indent_style = space
@@ -20,19 +23,17 @@ indent_size = 4
 [*.md]
 trim_trailing_whitespace = false
 
+[*.{py,toml}]
+indent_style = space
+indent_size = 4
+
 [*.rst]
 tab_width = 4
 
-[*.yml]
+[*.{yml,yaml}]
 tab_width = 2
 indent_size = 2
-
-[*.yaml]
-tab_width = 2
 
 [Makefile]
 indent_style = tab
 indent_size = 4
-
-[*.{bat,cmd,ps1}]
-end_of_line = crlf

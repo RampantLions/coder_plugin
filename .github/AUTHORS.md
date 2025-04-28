@@ -1,4 +1,4 @@
-<!-- BEGIN LiminalCognition LLC AUTHORS.MD V0.0.5 BLOCK -->
+<!-- BEGIN LiminalCognition LLC AUTHORS.MD V0.0.1 BLOCK -->
 
 # 📋 Authors
 

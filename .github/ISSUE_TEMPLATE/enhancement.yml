@@ -1,0 +1,126 @@
+name: "🚀 Enhancement"
+description: Suggest a new feature, enhancement, or improvement
+title: "[Enhancement]: "
+labels: ["enhancement", "triage"]
+
+assignees:
+  - RampantLions
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to suggest a new feature or improvement for Code Plugin!
+        ✨ A Pull Request (PR) to implement the enhancement would be even better!
+
+  - type: textarea
+    id: overview
+    attributes:
+      label: Overview
+      description: |
+        Provide a very brief (1–2 sentence) summary of the enhancement request.
+
+        *✏️ **Tip:** Focus on *what* the idea is without going into deep technical detail yet.*
+    validations:
+      required: true
+
+  - type: textarea
+    id: vision
+    attributes:
+      label: Vision and Use Case
+      description: |
+        What is your vision for this improvement? What problem does it solve for you?
+
+        *🌟 **Tip:** Describe the big idea and how it improves a real use case.*
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: |
+        Describe the changes you would like to see in more detail.
+
+        *🛠️ **Tip:** Focus on *how* you imagine this could be implemented or designed.*
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example or Mockup
+      description: |
+        Provide a basic example, flow, or mockup that illustrates your idea.
+
+        *📎 **Tip:** You can drag and drop images, code snippets, or diagrams here if helpful.*
+    validations:
+      required: false
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: |
+        Why should this enhancement be added? What use cases does it support, and what is the expected benefit?
+
+        *💬 **Tip:** Explain why this matters — not just what it does.*
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      description: 🚀 Estimate how much impact this enhancement would have.
+      options:
+        - High (Major usability, functionality, or performance improvement)
+        - Medium (Improves some user flows, adds optional features)
+        - Low (Small polish, convenience, minor UX enhancements)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: 📐 How broad is the change expected to be?
+      options:
+        - Single Feature or Area
+        - Multiple Features or Areas
+        - Entire Plugin Architecture
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: |
+        Did you consider any alternative approaches?
+
+        *🔄 **Tip:** Mention other options you thought about, even if you still prefer this idea.*
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context, references, or supporting information for your enhancement.
+
+        *🔗 **Tip:** Include links to related issues, external resources, or examples if helpful.*
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: ✅ By submitting this suggestion, you agree to the following
+      options:
+        - label: I agree to follow this project's [Code of Conduct](https://example.com).
+          required: true
+        - label: I affirm this suggestion is not already submitted in an existing issue.
+          required: true

@@ -1,99 +1,84 @@
-<!-- BEGIN LiminalCognition LLC SECURITY.MD V0.0.5 BLOCK -->
+<!-- BEGIN LiminalCognition LLC SECURITY.MD V0.0.1 BLOCK -->
 
-# 📋 Security
+# 🛡 Security Policy
 
-coder_plugin: coder_plugin
+## Introduction
 
-LiminalCognition LLC takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub organizations, including [LiminalCognition LLC](https://github.com/LiminalCognition-LLC), and [our GitHub organizations](https://RampantLions.github.io/coder_plugin/security/).
+The security of `coder_plugin` and all related repositories managed by LiminalCognition LLC is a critical priority.  
+We value and encourage responsible security research to help us protect our users and systems.
 
-If you believe you have found a security vulnerability in any LiminalCognition LLC-owned repository that meets [LiminalCognition LLC's definition of a security vulnerability](https://RampantLions.github.io/coder_plugin/security/policy), please report it to us as described below.
-
-
-LiminalCognition LLC takes security seriously across all repositories managed under [LiminalCognition-LLC](https://github.com/LiminalCognition-LLC).
-
-If you discover a potential vulnerability in this repository, please report it to us as described below.
+If you believe you have discovered a security vulnerability in this repository or any other project under [LiminalCognition LLC](https://github.com/LiminalCognition-LLC), please follow the procedures outlined below.
 
 ---
 
-### 🛡 Reporting Security Issues
+## 📬 How to Report Security Issues
 
-**Do not report security vulnerabilities via GitHub issues.**
+**Please do not report security vulnerabilities through GitHub issues, discussions, or public forums.**
 
-Instead, submit them via:
+Instead, contact us directly via one of the following channels:
 
 - Security Response Center: [https://RampantLions.github.io/coder_plugin/security/submission](https://RampantLions.github.io/coder_plugin/security/submission)
 - Email: [liminal.cognition@gmail.com](mailto:liminal.cognition@gmail.com)
 - PGP Key: [https://RampantLions.github.io/coder_plugin/pgp](https://RampantLions.github.io/coder_plugin/pgp)
 
-Additional details are available at [Security Policies](https://RampantLions.github.io/coder_plugin/security/policy).
+We encourage the use of PGP encryption whenever possible for sensitive communications.
 
-You can expect a response within 24 hours.
-
-**Please do not report security vulnerabilities through public GitHub issues.**
-
-Instead, please report them to the LiminalCognition LLC Security Response Center (SRC) at [https://RampantLions.github.io/coder_plugin/security/submission](https://RampantLions.github.io/coder_plugin/security/submission).
-
-If you prefer to submit without logging in, send email to [liminal.cognition@gmail.com](mailto:liminal.cognition@gmail.com).
-If possible, encrypt your message with our PGP key; please download it from the [LiminalCognition LLC Security Response Center PGP Key page](https://RampantLions.github.io/coder_plugin/pgp).
-
-You should receive a response within 24 hours. If you do not, please follow up via email to ensure we received your original message. Additional information can be found at [https://RampantLions.github.io/coder_plugin/security/additional](https://RampantLions.github.io/coder_plugin/security/additional).
-
-Please include as much of the following information as possible to help us better understand the nature and scope of the potential issue:
-
-- Type of issue (e.g., buffer overflow, SQL injection, cross-site scripting, etc.)
-- Full paths of source file(s) related to the manifestation of the issue
-- The location of the affected source code (tag/branch/commit or direct URL)
-- Any special configuration required to reproduce the issue
-- Step-by-step instructions to reproduce the issue
-- Proof-of-concept or exploit code (if possible)
-- Impact of the issue, including how an attacker might exploit it
-
-More complete reports can contribute to a higher bounty award if you are reporting through a bounty program.
+For additional details on our disclosure process, see:  
+[Security Policies](https://RampantLions.github.io/coder_plugin/security/policy)
 
 ---
 
-### Preferred Languages
+## 📝 Information to Include in Your Report
 
-All security communications should be in English.
+To help us investigate and address the issue effectively, please provide:
+
+- A clear description of the vulnerability.
+- The type of issue (e.g., buffer overflow, SQL injection, cross-site scripting).
+- Affected file(s) or component(s), including repository name and branch, tag, or commit hash if possible.
+- Step-by-step instructions to reproduce the issue.
+- Proof-of-concept (PoC) code, if available.
+- Details of any special configurations required to reproduce the issue.
+- The potential impact or exploitability of the vulnerability.
+
+More detailed and complete reports assist greatly in evaluation and may contribute to bounty award eligibility if submitted through a bounty program.
 
 ---
 
-### Policy
+## 🌐 Preferred Language
 
-We follow the principle of [Coordinated Vulnerability Disclosure](https://RampantLions.github.io/coder_plugin/cvd-policy).
-
-LiminalCognition LLC follows the principle of [Coordinated Vulnerability Disclosure](https://RampantLions.github.io/coder_plugin/cvd-policy).
+All security communications should be conducted in English.
 
 ---
+
+## 🔒 Coordinated Vulnerability Disclosure
+
+LiminalCognition LLC follows the principles of [Coordinated Vulnerability Disclosure (CVD)](https://RampantLions.github.io/coder_plugin/cvd-policy).
+
+We believe that working with the security community is the best way to ensure responsible handling and remediation of vulnerabilities.  
+We will work with researchers to validate and remediate reported vulnerabilities, and coordinate public disclosure when appropriate.
+
+---
+
+## 🤝 Our Commitment
+
+We are committed to:
+
+- Investigating all legitimate reports thoroughly and objectively.
+- Maintaining open and respectful communication throughout the process.
+- Protecting your privacy and handling your report confidentially.
+- Not pursuing legal action against researchers who adhere to this policy.
+
+We appreciate your efforts to improve the security of our projects and the broader ecosystem.
+
+Thank you for helping to keep `coder_plugin` and our users safe.
+
+---
+
+# 📜 References
+
+- [Security Submission Portal](https://RampantLions.github.io/coder_plugin/security/submission)
+- [Security Policies and Definitions](https://RampantLions.github.io/coder_plugin/security/policy)
+- [PGP Key for Secure Communications](https://RampantLions.github.io/coder_plugin/pgp)
+- [Coordinated Vulnerability Disclosure Policy](https://RampantLions.github.io/coder_plugin/cvd-policy)
 
 <!-- END LiminalCognition LLC SECURITY.MD BLOCK -->
-
-# Reporting Security Issues
-
-## Introduction
-
-The security of our systems is our top priority. If you have discovered a security vulnerability in our project, we appreciate your cooperation in responsibly disclosing it to us.
-
-## Please Follow These Steps:
-
-1. **Do Not Report Security Vulnerabilities Publicly**
-   - Please **do not** disclose any details about the vulnerability in public forums, GitHub issues, or any other public channels. Such actions can potentially lead to misuse and could harm our users.
-
-2. **Email Us Directly**
-   - To report a security issue, please send an email directly to us at [support@abblix.com](mailto:support@abblix.com). Include as much information as possible about the vulnerability, including:
-     - The conditions on which the vulnerability can be reproduced.
-     - Any potential impacts of the vulnerability.
-     - How you found the vulnerability, if you'd like to share this.
-
-## What Will Happen Next?
-
-- **Acknowledgement**: We will acknowledge your email within 24 hours.
-- **Investigation**: Our security team will investigate the issue and work to quickly address it.
-- **Communication**: We will keep you informed of our progress as we work to resolve the vulnerability.
-- **Disclosure**: Once the issue has been resolved, we will work with you to coordinate the disclosure of the vulnerability to ensure that all our users are adequately informed and protected.
-
-## Our Commitment
-
-We are committed to working with security researchers and the community to make our products safer. We appreciate your efforts in responsibly reporting any issues you find. We promise to handle your report with confidentiality and will not take any legal action against you as long as you adhere to these guidelines.
-
-Thank you for helping us keep our products and our users safe!
