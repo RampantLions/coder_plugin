@@ -67,8 +67,6 @@ ReadMe is UNDER CONSTRUCTION.
 <a id="about-the-project"></a>
 ## 🗂 About The Project
 
-Coder Plugin - System Generator
-
 A plugin system for Python projects using [PDM](https://pdm-project.org/), [uv](https://github.com/astral-sh/uv), and strict development tooling.
 
 Designed for fast setup, strong code quality, and full lifecycle management, from development to publishing.
@@ -704,52 +702,8 @@ This project was generated from [@RampantLions]'s [Python Cookiecutter] template
 
 
 
-
-<a id="features"></a>
-### 📦🎯 Key Features
-
-- **PDM-based project management**
-- **uv** for fast and reliable installations
-- **Strict Python 3.11+ typing** enforced with **mypy**
-- **Comprehensive linting** with **ruff**, **black**, and **isort**
-- **Coverage reporting** with **pytest-cov**
-- **Automated quality checks** via **pre-commit hooks**
-- **Fully structured plugin entry points** (scaffolded)
-- **Ready for PyPI publishing** with **twine** and **build**
-
-<p align="right"><a href="#readme-top">↖ Back to top</a></p>
-
-<a id="built-with"></a>
-### 🛠️ Built With
-
-| Tool | Purpose |
-|:-----|:--------|
-| [![black]][black-url] | Code formatting |
-| [![build]][build-url] | Building project distributions (wheel and sdist) |
-| [![cruft]][cruft-url] | Managing and applying updates to projects created from Cookiecutter templates |
-| [![isort]][isort-url] | Import sorter to automatically organize imports |
-| [![mypy]][mypy-url] | Static type checking for Python |
-| [![pre-commit]][pre-commit-url] | Git hook automation for linting, formatting, and checks |
-| [![pytest]][pytest-url] | Unit testing framework |
-| [![pytest-cov]][pytest-cov-url] | Coverage reporting plugin for pytest |
-| [![ruff]][ruff-url] | Extremely fast Python linter |
-| [![safety]][safety-url] | Security vulnerability checker for dependencies |
-| [![semantic-release]][semantic-release-url] | Automates versioning and changelog generation based on commit messages |
-| [![twine]][twine-url] | Securely uploads Python distributions to PyPI |
-| [![Docker Hub]][Docker-Hub-url] | Repository for container images (Docker registries) |
-| [![GitHub Actions]][GitHub-Actions-url] | CI/CD automation platform integrated into GitHub |
-| [![GitHub CLI]][GitHub-CLI-url] | Command-line interface to GitHub |
-| [![GitHub Pages]][GitHub-Pages-url] | Hosting service for static websites from GitHub repositories |
-| [![PyPI]][PyPI-url] | Python Package Index for publishing and distributing Python packages |
-| [![MkDocs]][MkDocs-url] | Static site generator geared toward project documentation |
-| [![mkdocs-material]][mkdocs-material-url] | Material Design theme for MkDocs |
-| [![pipx]][pipx-url] | Tool for installing and running Python applications in isolated environments |
-
-<p align="right"><a href="#readme-top">↖ Back to top</a></p>
-
 ---
 
-## ⚡️ Quick Start
 
 <!-- GETTING STARTED -->
 <a id="getting-started"></a>

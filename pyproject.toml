@@ -792,6 +792,8 @@ docs-pdf = "sphinx-build -b latex docs/source docs/build/latex && make -C docs/b
 docs-serve = "sphinx-autobuild docs/ docs/_build/html --port 8000 --open-browser"
 docs-serve-native = "python -m http.server --directory docs/build/html"
 
+# {% if cookiecutter.pytest_enabled == "y" %}
+
 # ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # 🧪 Test Commands Scripts
 # ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -802,7 +804,7 @@ test-all = { composite = [
 ] }
 test-gh = "pytest --cov=src --cov-report=term-missing --annotate-failures tests"
 
-# # {%- endif %}
+# {%- endif %}
 
 # ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # 🧹 Lint and Format Commands Scripts
@@ -812,10 +814,15 @@ format = { composite = [
     "black src tests",
     "ruff check src tests --fix"
 ] }
+# {% if cookiecutter.black_enabled == "y" %}
 format-black = "black src tests"
+# {%- endif %}
+# {% if cookiecutter.isort_enabled == "y" %}
 format-isort = "isort src tests"
+# {%- endif %}
+# {% if cookiecutter.ruff_enabled == "y" %}
 format-ruff = "ruff check src tests --fix"
-
+# {%- endif %}
 lint = { composite = [
     "ruff check src tests",
     "black --check src tests",
@@ -824,17 +831,31 @@ lint = { composite = [
     "pylint src tests",
     "mypy src tests"
 ] }
+# {% if cookiecutter.black_enabled == "y" %}
 lint-black = "black --check src tests"
+# {%- endif %}
+# {% if cookiecutter.isort_enabled == "y" %}
 lint-isort = "isort --check-only src tests"
+# {%- endif %}
+# {% if cookiecutter.flake8_enabled == "y" %}
 lint-flake8 = "flake8 src tests"
+# {%- endif %}
+# {% if cookiecutter.mypy_enabled == "y" %}
 lint-mypy = "mypy src tests"
+# {%- endif %}
+# {% if cookiecutter.pylint_enabled == "y" %}
 lint-pylint = "pylint src tests"
+# {%- endif %}
+# {% if cookiecutter.ruff_enabled == "y" %}
 lint-ruff = "ruff check src tests"
+# {%- endif %}
 
 # ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # 🛡️ Security Scan Commands Scripts
 # ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# {% if cookiecutter.bandit_enabled == "y" %}
 security-bandit = "bandit -r src -n 4 -x build,dist,tests,scripts"
+# {%- endif %}
 security-safety = "safety check"
 security = { composite = [
     "bandit -r src -n 4 -x build,dist,tests,scripts",
@@ -847,48 +868,56 @@ security = { composite = [
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 [tool.pre-commit]
 repos = [
-  # Black formatter
-  { repo = "https://github.com/psf/black", rev = "stable", hooks = [
+    # {% if cookiecutter.black_enabled == "y" %}
+    # Black formatter
+    { repo = "https://github.com/psf/black", rev = "stable", hooks = [
       { id = "black" },
-  ] },
-
-  # Isort import sorter (mirror for pre-commit)
-  { repo = "https://github.com/pre-commit/mirrors-isort", rev = "v5.12.0", hooks = [
+    ] },
+    # {%- endif %}
+    # {% if cookiecutter.isort_enabled == "y" %}
+    # Isort import sorter (mirror for pre-commit)
+    { repo = "https://github.com/pre-commit/mirrors-isort", rev = "v5.12.0", hooks = [
       { id = "isort" },
-  ] },
-
-  # Ruff linter
-  { repo = "https://github.com/charliermarsh/ruff-pre-commit", rev = "v0.1.0", hooks = [
+    ] },
+    # {%- endif %}
+    # {% if cookiecutter.ruff_enabled == "y" %}
+    # Ruff linter
+    { repo = "https://github.com/charliermarsh/ruff-pre-commit", rev = "v0.1.0", hooks = [
       { id = "ruff" },
-  ] },
-
-  # Mypy static type checker
-  { repo = "https://github.com/pre-commit/mirrors-mypy", rev = "v1.7.1", hooks = [
+    ] },
+    # {%- endif %}
+    # {% if cookiecutter.mypy_enabled == "y" %}
+    # Mypy static type checker
+    { repo = "https://github.com/pre-commit/mirrors-mypy", rev = "v1.7.1", hooks = [
       { id = "mypy" },
-  ] },
-
-  # Flake8 code linter
-  { repo = "https://github.com/pre-commit/mirrors-flake8", rev = "v5.0.4", hooks = [
+    ] },
+    # {%- endif %}
+    # {% if cookiecutter.flake8_enabled == "y" %}
+    # Flake8 code linter
+    { repo = "https://github.com/pre-commit/mirrors-flake8", rev = "v5.0.4", hooks = [
       { id = "flake8" },
-  ] },
-
-  # Pylint code linter
-  { repo = "https://github.com/PyCQA/pylint", rev = "v3.0.0a6", hooks = [
+    ] },
+    # {%- endif %}
+    # {% if cookiecutter.pylint_enabled == "y" %}
+    # Pylint code linter
+    { repo = "https://github.com/PyCQA/pylint", rev = "v3.0.0a6", hooks = [
       { id = "pylint" },
-  ] },
-
-  # Bandit security scanner
-  { repo = "https://github.com/PyCQA/bandit", rev = "1.7.5", hooks = [
+    ] },
+    # {%- endif %}
+    # {% if cookiecutter.bandit_enabled == "y" %}
+    # Bandit security scanner
+    { repo = "https://github.com/PyCQA/bandit", rev = "1.7.5", hooks = [
       { id = "bandit" },
-  ] },
-
-  # Safety package vulnerability scanner
-  { repo = "https://github.com/pycqa/safety", rev = "2.3.5", hooks = [
+    ] },
+    # {%- endif %}
+    # {% if cookiecutter.safety_enabled == "y" %}
+    # Safety package vulnerability scanner
+    { repo = "https://github.com/pycqa/safety", rev = "2.3.5", hooks = [
       { id = "safety" },
-  ] },
-
-  # Core pre-commit checks
-  { repo = "https://github.com/pre-commit/pre-commit-hooks", rev = "v4.4.0", hooks = [
+    ] },
+    # {%- endif %}
+    # Core pre-commit checks
+    { repo = "https://github.com/pre-commit/pre-commit-hooks", rev = "v4.4.0", hooks = [
       { id = "check-ast" },
       { id = "check-json" },
       { id = "check-json-schema" },
@@ -906,30 +935,32 @@ repos = [
       { id = "mixed-line-ending" },
       { id = "trailing-whitespace", name = "Trim Trailing Whitespace" },
       { id = "requirements-txt-fixer" },
-  ] },
+    ] },
 
-  # Isort native config for annotations (not mirror)
-  { repo = "https://github.com/PyCQA/isort", rev = "5.12.0", hooks = [
+    # {% if cookiecutter.isort_enabled == "y" %}
+    # Isort native config for annotations (not mirror)
+    { repo = "https://github.com/PyCQA/isort", rev = "5.12.0", hooks = [
       { id = "isort", args = ["-a", "from __future__ import annotations"] },
-  ] },
+    ] },
+    # {%- endif %}
 
-  # Pyupgrade auto modernizer
-  { repo = "https://github.com/asottile/pyupgrade", rev = "v2.31.0", hooks = [
+    # Pyupgrade auto modernizer
+    { repo = "https://github.com/asottile/pyupgrade", rev = "v2.31.0", hooks = [
       { id = "pyupgrade", args = ["--py37-plus"] },
-  ] },
+    ] },
 
-  # Pycln dead import remover
-  { repo = "https://github.com/hadialqattan/pycln", rev = "v1.2.5", hooks = [
+    # Pycln dead import remover
+    { repo = "https://github.com/hadialqattan/pycln", rev = "v1.2.5", hooks = [
       { id = "pycln", args = ["--config=pyproject.toml"], stages = ["manual"] },
-  ] },
+    ] },
 
-  # Codespell typo finder
-  { repo = "https://github.com/codespell-project/codespell", rev = "v2.1.0", hooks = [
+    # Codespell typo finder
+    { repo = "https://github.com/codespell-project/codespell", rev = "v2.1.0", hooks = [
       { id = "codespell" },
-  ] },
+    ] },
 
-  # Pygrep hooks (Python regex checks)
-  { repo = "https://github.com/pre-commit/pygrep-hooks", rev = "v1.9.0", hooks = [
+    # Pygrep hooks (Python regex checks)
+    { repo = "https://github.com/pre-commit/pygrep-hooks", rev = "v1.9.0", hooks = [
       { id = "python-check-blanket-noqa" },
       { id = "python-check-blanket-type-ignore" },
       { id = "python-no-log-warn" },
@@ -938,19 +969,19 @@ repos = [
       { id = "rst-backticks" },
       { id = "rst-directive-colons" },
       { id = "rst-inline-touching-normal" },
-  ] },
+    ] },
 
-  # Manifest file checker
-  { repo = "https://github.com/mgedmin/check-manifest", rev = "0.47", hooks = [
+    # Manifest file checker
+    { repo = "https://github.com/mgedmin/check-manifest", rev = "0.47", hooks = [
       { id = "check-manifest", stages = ["manual"] },
-  ] },
+    ] },
 
-  { repo = "https://github.com/pre-commit/mirrors-prettier", rev = "v2.6.0", hooks = [
+    { repo = "https://github.com/pre-commit/mirrors-prettier", rev = "v2.6.0", hooks = [
       { id = "prettier" },
-  ]},
-  { repo = "https://github.com/pre-commit/mirrors-sphinx", rev = "v7.2.6", hooks = [
+    ]},
+    { repo = "https://github.com/pre-commit/mirrors-sphinx", rev = "v7.2.6", hooks = [
     { id = "sphinx-build", args = ["-b", "html", "docs/source", "docs/build"] },
-  ] }
+    ] }
 ]
 
 [tool.pre-commit.ci]
