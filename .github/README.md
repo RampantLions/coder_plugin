@@ -1,41 +1,32 @@
 <!-- BEGIN LiminalCognition LLC README.MD V0.0.1 BLOCK -->
 <a id="readme-top"></a>
 
+<div align="center">
+
 # Coder Plugin
 
-## 📋 Read Me
-
-ReadMe is UNDER CONSTRUCTION. 
-
-<br />
-<a href="./"><strong>Explore the docs »</strong></a>
-<br />
-
-<div align="center"><!-- brenocq/implot3d -->
-
-[![Latest release](https://img.shields.io/github/v/release/RampantLions/coder_plugin?label=Latest%20release&style=social)](https://github.com/RampantLions/coder_plugin/releases/tag/v1.5.0)
-[![GitHub commits](https://img.shields.io/github/commits-since/RampantLions/coder_plugin/v1.5.0.svg?style=social)](https://GitHub.com/RampantLions/coder_plugin/commit/)
-[![Stars](https://img.shields.io/github/stars/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/stargazers)
-[![Fork](https://img.shields.io/github/forks/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/network/members)
-[![Watchers](https://img.shields.io/github/watchers/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/watchers)
+[![Stars](https://img.shields.io/github/stars/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/stargazers) &middot; 
+[![Fork](https://img.shields.io/github/forks/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/network/members) &middot; 
+[![Watchers](https://img.shields.io/github/watchers/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/watchers) &middot; 
 [![Wiki Pages](https://img.shields.io/badge/AREG%20Wiki%20Pages-8-brightgreen?style=social&logo=wikipedia)](https://github.com/RampantLions/coder_plugin/wiki/)
-
+<br />
+[![Latest release](https://img.shields.io/github/v/release/RampantLions/coder_plugin?label=Latest%20release&style=social)](https://github.com/RampantLions/coder_plugin/releases/tag/v1.5.0) &middot; 
+[![GitHub commits](https://img.shields.io/github/commits-since/RampantLions/coder_plugin/v1.5.0.svg?style=social)](https://GitHub.com/RampantLions/coder_plugin/commit/)
 <br/>
 
-  <img src="https://github.com/RampantLions/coder_plugin/actions/workflows/linux.yml/badge.svg" alt="🐧 Linux"/> | 
-  <img src="https://github.com/RampantLions/coder_plugin/actions/workflows/macos.yml/badge.svg" alt="🍎 MacOS"/> | 
-  <img src="https://github.com/RampantLions/coder_plugin/actions/workflows/windows.yml/badge.svg" alt="🪟 Windows"/>
+[![File A Bug](https://img.shields.io/badge/File%20A%20Bug-blue)](./issues/new?labels=bug&template=bug_report.yml)
+&middot; 
+[![Request Enhancement](https://img.shields.io/badge/Request%20Enhancement-blue)](./issues/new?labels=bug&template=enhancement.yml)
+<br/>
+
+[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black] &middot; 
+[![Codecov](https://codecov.io/gh/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/branch/main/graph/badge.svg)][codecov] &middot; 
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 </div>
 
-<br />
-<div align="center">
-  <p align="center">
-    <br />
-    <a href="./issues/new?labels=bug&template=bug_report.yml">Report Bug</a>
-    &middot;
-    <a href="./issues/new?labels=enhancement&template=enhancement.yml">Request Feature</a>
-  </p>
-</div>
+# 📋 Read Me
+
+ReadMe is UNDER CONSTRUCTION. 
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -51,6 +42,7 @@ ReadMe is UNDER CONSTRUCTION.
     <li>
       <a href="#getting-started">🚀 Getting Started</a>
       <ul>
+        <li><a href="#quick-start">⚡️ Quick Start</a></li>
         <li><a href="#prerequisites">📋 Prerequisites</a></li>
         <li><a href="#installation">📦 Installation</a></li>
       </ul>
@@ -69,6 +61,8 @@ ReadMe is UNDER CONSTRUCTION.
   </ol>
 </details>
 
+<p align="right"><a href="#readme-top">↖ Back to top</a></p>
+
 <!-- ABOUT THE PROJECT -->
 <a id="about-the-project"></a>
 ## 🗂 About The Project
@@ -79,11 +73,15 @@ A plugin system for Python projects using [PDM](https://pdm-project.org/), [uv](
 
 Designed for fast setup, strong code quality, and full lifecycle management, from development to publishing.
 
+<br />
+<br />
+<a href="https://rampantlions.github.io/coder_plugin/"><strong>Explore the docs »</strong></a>
+<br />
 
 <p align="right"><a href="#readme-top">↖ Back to top</a></p>
 
 <a id="features"></a>
-### 📦🎯 Key Features
+### 🎯 Key Features
 
 - **PDM-based project management**
 - **uv** for fast and reliable installations
@@ -99,38 +97,57 @@ Designed for fast setup, strong code quality, and full lifecycle management, fro
 <a id="built-with"></a>
 ### 🛠️ Built With
 
-| Tool | Purpose |
-|:-----|:--------|
-| [![black]][black-url] | Code formatting |
-| [![build]][build-url] | Building project distributions (wheel and sdist) |
-| [![cruft]][cruft-url] | Managing and applying updates to projects created from Cookiecutter templates |
-| [![isort]][isort-url] | Import sorter to automatically organize imports |
-| [![mypy]][mypy-url] | Static type checking for Python |
-| [![pre-commit]][pre-commit-url] | Git hook automation for linting, formatting, and checks |
-| [![pytest]][pytest-url] | Unit testing framework |
-| [![pytest-cov]][pytest-cov-url] | Coverage reporting plugin for pytest |
-| [![ruff]][ruff-url] | Extremely fast Python linter |
-| [![safety]][safety-url] | Security vulnerability checker for dependencies |
-| [![semantic-release]][semantic-release-url] | Automates versioning and changelog generation based on commit messages |
-| [![twine]][twine-url] | Securely uploads Python distributions to PyPI |
-| [![Docker Hub]][Docker-Hub-url] | Repository for container images (Docker registries) |
-| [![GitHub Actions]][GitHub-Actions-url] | CI/CD automation platform integrated into GitHub |
-| [![GitHub CLI]][GitHub-CLI-url] | Command-line interface to GitHub |
-| [![GitHub Pages]][GitHub-Pages-url] | Hosting service for static websites from GitHub repositories |
-| [![PyPI]][PyPI-url] | Python Package Index for publishing and distributing Python packages |
-| [![MkDocs]][MkDocs-url] | Static site generator geared toward project documentation |
-| [![mkdocs-material]][mkdocs-material-url] | Material Design theme for MkDocs |
-| [![pipx]][pipx-url] | Tool for installing and running Python applications in isolated environments |
+[black]: https://img.shields.io/badge/black-000000?style=for-the-badge&logo=python&logoColor=white
+[black-url]: https://github.com/psf/black
+
+| Tool                                                                                                                                                  | Purpose                                                                                                                                                      |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [![black]][black-url]                                                                                                                                 | Code formatting                                                                                                                                              |
+| [![build]][build-url]                                                                                                                                 | Building project distributions (wheel and sdist)                                                                                                             |
+| [![cruft]][cruft-url]                                                                                                                                 | Managing and applying updates to projects created from Cookiecutter templates                                                                                |
+| [![isort]][isort-url]                                                                                                                                 | Import sorter to automatically organize imports                                                                                                              |
+| [![mypy]][mypy-url]                                                                                                                                   | Static type checking for Python                                                                                                                              |
+| [![pre-commit]][pre-commit-url]                                                                                                                       | Git hook automation for linting, formatting, and checks                                                                                                      |
+| [![pytest]][pytest-url]                                                                                                                               | Unit testing framework                                                                                                                                       |
+| [![pytest-cov]][pytest-cov-url]                                                                                                                       | Coverage reporting plugin for pytest                                                                                                                         |
+| [![ruff]][ruff-url]                                                                                                                                   | Extremely fast Python linter                                                                                                                                 |
+| [![safety]][safety-url]                                                                                                                               | Security vulnerability checker for dependencies                                                                                                              |
+| [![semantic-release]][semantic-release-url]                                                                                                           | Automates versioning and changelog generation based on commit messages                                                                                       |
+| [![twine]][twine-url]                                                                                                                                 | Securely uploads Python distributions to PyPI                                                                                                                |
+| [![Docker Hub]][Docker-Hub-url]                                                                                                                       | Repository for container images (Docker registries)                                                                                                          |
+| [![GitHub Actions]][GitHub-Actions-url]                                                                                                               | CI/CD automation platform integrated into GitHub                                                                                                             |
+| [![GitHub CLI]][GitHub-CLI-url]                                                                                                                       | Command-line interface to GitHub                                                                                                                             |
+| [![GitHub Pages]][GitHub-Pages-url]                                                                                                                   | Hosting service for static websites from GitHub repositories                                                                                                 |
+| [![PyPI]][PyPI-url]                                                                                                                                   | [![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg)][pypi status] Python Package Index for publishing and distributing Python packages |
+| [![MkDocs]][MkDocs-url]                                                                                                                               | Static site generator geared toward project documentation                                                                                                    |
+| [![mkdocs-material]][mkdocs-material-url]                                                                                                             | Material Design theme for MkDocs                                                                                                                             |
+| [![pipx]][pipx-url]                                                                                                                                   | Tool for installing and running Python applications in isolated environments                                                                                 |
 
 <p align="right"><a href="#readme-top">↖ Back to top</a></p>
 
----
 
-## ⚡️ Quick Start
+[![Status](https://img.shields.io/pypi/status/{{cookiecutter.project_name}}.svg)][pypi status]
+[![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.project_name}})][pypi status]
+[![License](https://img.shields.io/pypi/l/{{cookiecutter.project_name}})][license]
+
+[![Read the documentation at https://{{cookiecutter.project_name}}.readthedocs.io/](https://img.shields.io/readthedocs/{{cookiecutter.project_name}}/latest.svg?label=Read%20the%20Docs)][read the docs]
+[![Tests](https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/workflows/Tests/badge.svg)][tests]
+
+[pypi status]: https://pypi.org/project/{{cookiecutter.project_name}}/
+[read the docs]: https://{{cookiecutter.project_name}}.readthedocs.io/
+[tests]: https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/actions?workflow=Tests
+[codecov]: https://app.codecov.io/gh/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}
+[pre-commit]: https://github.com/pre-commit/pre-commit
+[black]: https://github.com/psf/black
+
+---
 
 <!-- GETTING STARTED -->
 <a id="getting-started"></a>
 ## 🚀 Getting Started
+
+<a id="quick-start"></a>
+### ⚡️ Quick Start
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
@@ -149,7 +166,13 @@ This is an example of how to list things you need to use the software and how to
   ```
 
 <a id="installation"></a>
-### 📦 Installation
+### 📦📖 Installation
+
+You can install _{{cookiecutter.friendly_name}}_ via [pip] from [PyPI]:
+
+```console
+$ pip install {{cookiecutter.project_name}}
+```
 
 1. Install [PDM](https://pdm-project.org/) & [uv](https://github.com/astral-sh/uv):
 
@@ -240,13 +263,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <a id="roadmap"></a>
 ## 🛣️ Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Add Item 1
+- [x] Add Item 2
+- [ ] Add Item 3
+- [ ] Add Item 4
+- [ ] Add Item 5
+    - [ ] Add Item A
+    - [ ] Add Item B
 
 See the [open issues](https://github.com/RampantLions/coder_plugin/issues) for a full list of proposed features (and known issues).
 
@@ -257,6 +280,47 @@ See the [open issues](https://github.com/RampantLions/coder_plugin/issues) for a
 <!-- CONTRIBUTING -->
 <a id="contributing"></a>
 ## 🤝 Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to get involved.
+
+Contributions are very welcome.
+To learn more, see the [Contributor Guide].
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+The majority of Amplication code is open-source. We are committed to a transparent development process and highly appreciate any contributions. Whether you are helping us fix bugs, proposing new features, improving our documentation or spreading the word - we would love to have you as a part of the Amplication community. Please refer to our contribution guidelines and code of conduct.
+
+* Bug Report: If you see an error message or encounter an issue while using Amplication, please create a bug report.
+
+* Feature Request: If you have an idea or if there is a capability that is missing and would make development easier and more robust, please submit a feature request.
+
+* Documentation Request: If you're reading the Amplication docs and feel like you're missing something, please submit a documentation request.
+
+
+🤝 Feedback and Contributions
+
+We've made every effort to implement all the main aspects of the OpenID protocol in the best possible way. However, the development journey doesn't end here, and your input is crucial for our continuous improvement.
+
+> [!IMPORTANT]
+> Whether you have feedback on features, have encountered any bugs, or have suggestions for enhancements, we're eager to hear from you. Your insights help us make the Abblix OIDC Server library more robust and user-friendly.
+
+Please feel free to contribute by [submitting an issue](https://github.com/Abblix/Oidc.Server/issues) or [joining the discussions](https://github.com/orgs/Abblix/discussions). Each contribution helps us grow and improve.
+
+We appreciate your support and look forward to making our product even better with your help!
+
+
+Contributions are very welcome.
+To learn more, see the [Contributor Guide].
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -310,8 +374,12 @@ This project is licensed under the terms described in the [LICENSE](./LICENSE) f
 
 A large part of this project is licensed under the Apache 2.0 license. The only exception are the components under the ee (enterprise edition) directory, these are licensed under the Amplication Enterprise Edition license.
 
-<p align="right"><a href="#readme-top">↖ Back to top</a></p>
+Distributed under the terms of the [{{cookiecutter.license.replace("-", " ")}} license][./LICENSE],
+_{{cookiecutter.friendly_name}}_ is free and open source software.
 
+[license]: https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/blob/main/.github/LICENSE
+
+<p align="right"><a href="#readme-top">↖ Back to top</a></p>
 ---
 
 <!-- CONTACT -->
@@ -332,8 +400,6 @@ For more details about our products, services, or any general information regard
 
 Subscribe to our LinkedIn and Twitter:
 
-[![LinkedIn](https://img.shields.io/badge/subscribe-white.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwLjQ0NyAyMC40NTJoLTMuNTU0di01LjU2OWMwLTEuMzI4LS4wMjctMy4wMzctMS44NTItMy4wMzctMS44NTMgMC0yLjEzNiAxLjQ0NS0yLjEzNiAyLjkzOXY1LjY2N0g5LjM1MVY5aDMuNDE0djEuNTYxaC4wNDZjLjQ3Ny0uOSAxLjYzNy0xLjg1IDMuMzctMS44NSAzLjYwMSAwIDQuMjY3IDIuMzcgNC4yNjcgNS40NTV2Ni4yODZ6TTUuMzM3IDcuNDMzYTIuMDYyIDIuMDYyIDAgMCAxLTIuMDYzLTIuMDY1IDIuMDY0IDIuMDY0IDAgMSAxIDIuMDYzIDIuMDY1em0xLjc4MiAxMy4wMTlIMy41NTVWOWgzLjU2NHYxMS40NTJ6TTIyLjIyNSAwSDEuNzcxQy43OTIgMCAwIC43NzQgMCAxLjcyOXYyMC41NDJDMCAyMy4yMjcuNzkyIDI0IDEuNzcxIDI0aDIwLjQ1MUMyMy4yIDI0IDI0IDIzLjIyNyAyNCAyMi4yNzFWMS43MjlDMjQgLjc3NCAyMy4yIDAgMjIuMjIyIDBoLjAwM3oiIGZpbGw9IiMwQTY2QzIiLz48cGF0aCBzdHlsZT0iZmlsbDojZmZmO3N0cm9rZS13aWR0aDouMDIwOTI0MSIgZD0iTTQuOTE3IDcuMzc3YTIuMDUyIDIuMDUyIDAgMCAxLS4yNC0zLjk0OWMxLjEyNS0uMzg0IDIuMzM5LjI3NCAyLjY1IDEuNDM3LjA2OC4yNS4wNjguNzY3LjAwMSAxLjAxYTIuMDg5IDIuMDg5IDAgMCAxLTEuNjIgMS41MSAyLjMzNCAyLjMzNCAwIDAgMS0uNzktLjAwOHoiLz48cGF0aCBzdHlsZT0iZmlsbDojZmZmO3N0cm9rZS13aWR0aDouMDIwOTI0MSIgZD0iTTQuOTE3IDcuMzc3YTIuMDU2IDIuMDU2IDAgMCAxLTEuNTItMi42NyAyLjA0NyAyLjA0NyAwIDAgMSAzLjQxOS0uNzU2Yy4yNC4yNTQuNDIuNTczLjUxMi45MDguMDY1LjI0LjA2NS43OCAwIDEuMDItLjA1MS4xODYtLjE5Ny41MDQtLjMuNjUyLS4wOS4xMzItLjMxLjM2Mi0uNDQzLjQ2NC0uNDYzLjM1Ny0xLjEuNTAzLTEuNjY4LjM4MlpNMy41NTcgMTQuNzJWOS4wMDhoMy41NTd2MTEuNDI0SDMuNTU3Wk05LjM1MyAxNC43MlY5LjAwOGgzLjQxMXYuNzg1YzAgLjYxNC4wMDUuNzg0LjAyNi43ODMuMDE0IDAgLjA3LS4wNzMuMTI0LS4xNjIuNTI0LS44NjUgMS41MDgtMS40NzggMi42NS0xLjY1LjI3NS0uMDQyIDEtLjA0NyAxLjMzMi0uMDA5Ljc5LjA5IDEuNDUxLjMxNiAxLjk0LjY2NC4yMi4xNTcuNTU3LjQ5My43MTQuNzEzLjQyLjU5Mi42OSAxLjQxMi44MDggMi40NjQuMDc0LjY2My4wODQgMS4yMTUuMDg1IDQuNTc4djMuMjU4aC0zLjUzNnYtMi45ODZjMC0yLjk3LS4wMS0zLjQ3NC0uMDc0LTMuOTA4LS4wOS0uNjA2LS4zMTQtMS4wODItLjYzNC0xLjM0Mi0uMzk1LS4zMjItMS4wMjktLjQzNy0xLjcwMy0uMzA5LS44NTguMTYzLTEuMzU1Ljc1LTEuNTIzIDEuNzk3LS4wNzYuNDcxLS4wODQuODQ1LS4wODQgMy44MzR2Mi45MTRIOS4zNTN6Ii8+PC9zdmc+)](https://www.linkedin.com/company/103540510/)
-[![X](https://img.shields.io/badge/subscribe-white.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE4LjkwMSAxLjE1M2gzLjY4bC04LjA0IDkuMTlMMjQgMjIuODQ2aC03LjQwNmwtNS44LTcuNTg0LTYuNjM4IDcuNTg0SC40NzRsOC42LTkuODNMMCAxLjE1NGg3LjU5NGw1LjI0MyA2LjkzMlpNMTcuNjEgMjAuNjQ0aDIuMDM5TDYuNDg2IDMuMjRINC4yOThaIi8+PHBhdGggc3R5bGU9ImZpbGw6I2ZmZjtzdHJva2Utd2lkdGg6LjAyMDkyNDEiIGQ9Ik0xMS4wMzYgMTIuMDI4IDQuMzg3IDMuMzM0bC0uMDYtLjA4SDYuNDhsNi41MTYgOC42MTQgNi41NzUgOC42OTQuMDYuMDhoLTIuMDA2eiIvPjwvc3ZnPg==)](https://twitter.com/OIDCServer)
 
 We look forward to assisting you and ensuring your experience with our products is successful and enjoyable!
 
@@ -436,8 +502,6 @@ y'know. Pretty good.
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
-[black]: https://img.shields.io/badge/black-000000?style=for-the-badge&logo=python&logoColor=white
-[black-url]: https://github.com/psf/black
 [build]: https://img.shields.io/badge/build-3670A0?style=for-the-badge&logo=python&logoColor=white
 [build-url]: https://pypi.org/project/build/
 [cruft]: https://img.shields.io/badge/cruft-563D7C?style=for-the-badge&logo=python&logoColor=white
@@ -513,10 +577,6 @@ For details on reporting vulnerabilities, see [SECURITY.md](./SECURITY.md).
 
 
 
-## 🤝 Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to get involved.
-
 ---
 
 
@@ -550,11 +610,13 @@ Support
 
 > GitHub [@RampantLions](https://github.com/RampantLions) &nbsp;&middot;&nbsp;
 > Twitter [@RampantLions](https://twitter.com/RampantLions)
+> <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//github.com/RampantLions/coder_plugin" target="_blank"><img src="https://img.shields.io/twitter/url?label=LinkedIn&logo=LinkedIn&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Share on LinkedIn"/></a>
 
----
+[![LinkedIn](https://img.shields.io/badge/subscribe-white.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwLjQ0NyAyMC40NTJoLTMuNTU0di01LjU2OWMwLTEuMzI4LS4wMjctMy4wMzctMS44NTItMy4wMzctMS44NTMgMC0yLjEzNiAxLjQ0NS0yLjEzNiAyLjkzOXY1LjY2N0g5LjM1MVY5aDMuNDE0djEuNTYxaC4wNDZjLjQ3Ny0uOSAxLjYzNy0xLjg1IDMuMzctMS44NSAzLjYwMSAwIDQuMjY3IDIuMzcgNC4yNjcgNS40NTV2Ni4yODZ6TTUuMzM3IDcuNDMzYTIuMDYyIDIuMDYyIDAgMCAxLTIuMDYzLTIuMDY1IDIuMDY0IDIuMDY0IDAgMSAxIDIuMDYzIDIuMDY1em0xLjc4MiAxMy4wMTlIMy41NTVWOWgzLjU2NHYxMS40NTJ6TTIyLjIyNSAwSDEuNzcxQy43OTIgMCAwIC43NzQgMCAxLjcyOXYyMC41NDJDMCAyMy4yMjcuNzkyIDI0IDEuNzcxIDI0aDIwLjQ1MUMyMy4yIDI0IDI0IDIzLjIyNyAyNCAyMi4yNzFWMS43MjlDMjQgLjc3NCAyMy4yIDAgMjIuMjIyIDBoLjAwM3oiIGZpbGw9IiMwQTY2QzIiLz48cGF0aCBzdHlsZT0iZmlsbDojZmZmO3N0cm9rZS13aWR0aDouMDIwOTI0MSIgZD0iTTQuOTE3IDcuMzc3YTIuMDUyIDIuMDUyIDAgMCAxLS4yNC0zLjk0OWMxLjEyNS0uMzg0IDIuMzM5LjI3NCAyLjY1IDEuNDM3LjA2OC4yNS4wNjguNzY3LjAwMSAxLjAxYTIuMDg5IDIuMDg5IDAgMCAxLTEuNjIgMS41MSAyLjMzNCAyLjMzNCAwIDAgMS0uNzktLjAwOHoiLz48cGF0aCBzdHlsZT0iZmlsbDojZmZmO3N0cm9rZS13aWR0aDouMDIwOTI0MSIgZD0iTTQuOTE3IDcuMzc3YTIuMDU2IDIuMDU2IDAgMCAxLTEuNTItMi42NyAyLjA0NyAyLjA0NyAwIDAgMSAzLjQxOS0uNzU2Yy4yNC4yNTQuNDIuNTczLjUxMi45MDguMDY1LjI0LjA2NS43OCAwIDEuMDItLjA1MS4xODYtLjE5Ny41MDQtLjMuNjUyLS4wOS4xMzItLjMxLjM2Mi0uNDQzLjQ2NC0uNDYzLjM1Ny0xLjEuNTAzLTEuNjY4LjM4MlpNMy41NTcgMTQuNzJWOS4wMDhoMy41NTd2MTEuNDI0SDMuNTU3Wk05LjM1MyAxNC43MlY5LjAwOGgzLjQxMXYuNzg1YzAgLjYxNC4wMDUuNzg0LjAyNi43ODMuMDE0IDAgLjA3LS4wNzMuMTI0LS4xNjIuNTI0LS44NjUgMS41MDgtMS40NzggMi42NS0xLjY1LjI3NS0uMDQyIDEtLjA0NyAxLjMzMi0uMDA5Ljc5LjA5IDEuNDUxLjMxNiAxLjk0LjY2NC4yMi4xNTcuNTU3LjQ5My43MTQuNzEzLjQyLjU5Mi42OSAxLjQxMi44MDggMi40NjQuMDc0LjY2My4wODQgMS4yMTUuMDg1IDQuNTc4djMuMjU4aC0zLjUzNnYtMi45ODZjMC0yLjk3LS4wMS0zLjQ3NC0uMDc0LTMuOTA4LS4wOS0uNjA2LS4zMTQtMS4wODItLjYzNC0xLjM0Mi0uMzk1LS4zMjItMS4wMjktLjQzNy0xLjcwMy0uMzA5LS44NTguMTYzLTEuMzU1Ljc1LTEuNTIzIDEuNzk3LS4wNzYuNDcxLS4wODQuODQ1LS4wODQgMy44MzR2Mi45MTRIOS4zNTN6Ii8+PC9zdmc+)](https://www.linkedin.com/company/103540510/)
+[![X](https://img.shields.io/badge/subscribe-white.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE4LjkwMSAxLjE1M2gzLjY4bC04LjA0IDkuMTlMMjQgMjIuODQ2aC03LjQwNmwtNS44LTcuNTg0LTYuNjM4IDcuNTg0SC40NzRsOC42LTkuODNMMCAxLjE1NGg3LjU5NGw1LjI0MyA2LjkzMlpNMTcuNjEgMjAuNjQ0aDIuMDM5TDYuNDg2IDMuMjRINC4yOThaIi8+PHBhdGggc3R5bGU9ImZpbGw6I2ZmZjtzdHJva2Utd2lkdGg6LjAyMDkyNDEiIGQ9Ik0xMS4wMzYgMTIuMDI4IDQuMzg3IDMuMzM0bC0uMDYtLjA4SDYuNDhsNi41MTYgOC42MTQgNi41NzUgOC42OTQuMDYuMDhoLTIuMDA2eiIvPjwvc3ZnPg==)](https://twitter.com/OIDCServer)
 
 <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin&title=Awesome%20communcation%20engine!" target="_blank"><img src="https://img.shields.io/twitter/url?label=Reddit&logo=Reddit&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Share on Reddit"/></a>&nbsp;
-<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//github.com/RampantLions/coder_plugin" target="_blank"><img src="https://img.shields.io/twitter/url?label=LinkedIn&logo=LinkedIn&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Share on LinkedIn"/></a>&nbsp;
+&nbsp;
 <a href="https://x.com/intent/tweet?text=%23AREG%20%23realtime%20communication%20engine%20for%20%23embedded%20and%20%23IoT%0A%0Ahttps%3A//github.com/RampantLions/coder_plugin" target="_blank"><img src="https://img.shields.io/twitter/url?label=Twitter&logo=X&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Shared on X"/></a>&nbsp;
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//github.com/RampantLions/coder_plugin" target="_blank"><img src="https://img.shields.io/twitter/url?label=Facebook&logo=Facebook&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Share on Facebook"/></a>&nbsp;
 <a href="https://t.me/share/url?text=Awesome%20communication%20engine!&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" target="_blank"><img src="https://img.shields.io/twitter/url?label=Telegram&logo=Telegram&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Share on Telegram"/></a>&nbsp;
@@ -567,17 +629,9 @@ Support
 📖 
 
 
+[pypi status]: https://pypi.org/project/{{cookiecutter.project_name}}/
 
 
-
-
-
-
-
-
-# {{ cookiecutter.friendly_name }}
-
-[![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg)][pypi status]
 [![Status](https://img.shields.io/pypi/status/{{cookiecutter.project_name}}.svg)][pypi status]
 [![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.project_name}})][pypi status]
 [![License](https://img.shields.io/pypi/l/{{cookiecutter.project_name}})][license]
@@ -587,18 +641,12 @@ Support
 [![Codecov](https://codecov.io/gh/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/branch/main/graph/badge.svg)][codecov]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
-[pypi status]: https://pypi.org/project/{{cookiecutter.project_name}}/
 [read the docs]: https://{{cookiecutter.project_name}}.readthedocs.io/
 [tests]: https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/actions?workflow=Tests
 [codecov]: https://app.codecov.io/gh/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [black]: https://github.com/psf/black
-
-## Features
-
-- TODO
 
 ## Requirements
 
@@ -615,16 +663,6 @@ $ pip install {{cookiecutter.project_name}}
 ## Usage
 
 Please see the [Command-line Reference] for details.
-
-## Contributing
-
-Contributions are very welcome.
-To learn more, see the [Contributor Guide].
-
-## License
-
-Distributed under the terms of the [{{cookiecutter.license.replace("-", " ")}} license][./LICENSE],
-_{{cookiecutter.friendly_name}}_ is free and open source software.
 
 ## Issues
 
@@ -664,86 +702,8 @@ This project was generated from [@RampantLions]'s [Python Cookiecutter] template
 
 
 
-<a id="readme-top"></a>
-
-# Coder Plugin
-
-### 📋 Read Me
-
-[![Latest release](https://img.shields.io/github/v/release/RampantLions/coder_plugin?label=Latest%20release&style=social)](https://github.com/RampantLions/coder_plugin/releases/tag/v1.5.0)
-[![GitHub commits](https://img.shields.io/github/commits-since/RampantLions/coder_plugin/v1.5.0.svg?style=social)](https://GitHub.com/RampantLions/coder_plugin/commit/)
-[![Stars](https://img.shields.io/github/stars/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/stargazers)
-[![Fork](https://img.shields.io/github/forks/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/network/members)
-[![Watchers](https://img.shields.io/github/watchers/RampantLions/coder_plugin?style=social)](https://github.com/RampantLions/coder_plugin/watchers)
-[![Wiki Pages](https://img.shields.io/badge/AREG%20Wiki%20Pages-8-brightgreen?style=social&logo=wikipedia)](https://github.com/RampantLions/coder_plugin/wiki/)
-
-<div align="center"><!-- brenocq/implot3d -->
-  <img src="https://github.com/RampantLions/coder_plugin/actions/workflows/linux.yml/badge.svg" alt="🐧 Linux"/>
-  <img src="https://github.com/RampantLions/coder_plugin/actions/workflows/macos.yml/badge.svg" alt="🍎 MacOS"/>
-  <img src="https://github.com/RampantLions/coder_plugin/actions/workflows/windows.yml/badge.svg" alt="🪟 Windows"/>
-</div>
-
-<br />
-<a href="./"><strong>Explore the docs »</strong></a>
-<br />
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <p align="center">
-    <br />
-    <a href="./">View Demo</a>
-    &middot;
-    <a href="./issues/new?labels=bug&template=bug_report.yml">Report Bug</a>
-    &middot;
-    <a href="./issues/new?labels=enhancement&template=enhancement.yml">Request Feature</a>
-  </p>
-</div>
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">🗂️ About The Project</a>
-      <ul>
-        <li><a href="#features">📦 Key Features</a></li>
-        <li><a href="#built-with">🛠️ Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">🚀 Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">📋 Prerequisites</a></li>
-        <li><a href="#installation">📦 Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">🖥️ Usage</a></li>
-    <li><a href="#roadmap">🛣️ Roadmap</a></li>
-    <li>
-      <a href="#contributing">🤝 Contributing</a>
-      <ul>
-        <li><a href="#top-contributors">🏆 Top contributors</a></li>
-      </ul>
-    </li>
-    <li><a href="#license">📄 License</a></li>
-    <li><a href="#contact">📬 Contact</a></li>
-    <li><a href="#acknowledgments">🙏 Acknowledgments</a></li>
-  </ol>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-<a id="about-the-project"></a>
-## 🗂 About The Project
-
-Coder Plugin - System Generator
-
-A plugin system for Python projects using [PDM](https://pdm-project.org/), [uv](https://github.com/astral-sh/uv), and strict development tooling.
-
-Designed for fast setup, strong code quality, and full lifecycle management, from development to publishing.
 
 
-<p align="right"><a href="#readme-top">↖ Back to top</a></p>
 
 <a id="features"></a>
 ### 📦🎯 Key Features
@@ -899,59 +859,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ---
 
-<!-- ROADMAP -->
-<a id="roadmap"></a>
-## 🛣️ Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/RampantLions/coder_plugin/issues) for a full list of proposed features (and known issues).
-
-<p align="right"><a href="#readme-top">↖ Back to top</a></p>
 
 ---
 
-<!-- CONTRIBUTING -->
-<a id="contributing"></a>
-## 🤝 Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-The majority of Amplication code is open-source. We are committed to a transparent development process and highly appreciate any contributions. Whether you are helping us fix bugs, proposing new features, improving our documentation or spreading the word - we would love to have you as a part of the Amplication community. Please refer to our contribution guidelines and code of conduct.
-
-* Bug Report: If you see an error message or encounter an issue while using Amplication, please create a bug report.
-
-* Feature Request: If you have an idea or if there is a capability that is missing and would make development easier and more robust, please submit a feature request.
-
-* Documentation Request: If you're reading the Amplication docs and feel like you're missing something, please submit a documentation request.
-
-
-🤝 Feedback and Contributions
-
-We've made every effort to implement all the main aspects of the OpenID protocol in the best possible way. However, the development journey doesn't end here, and your input is crucial for our continuous improvement.
-
-> [!IMPORTANT]
-> Whether you have feedback on features, have encountered any bugs, or have suggestions for enhancements, we're eager to hear from you. Your insights help us make the Abblix OIDC Server library more robust and user-friendly.
-
-Please feel free to contribute by [submitting an issue](https://github.com/Abblix/Oidc.Server/issues) or [joining the discussions](https://github.com/orgs/Abblix/discussions). Each contribution helps us grow and improve.
-
-We appreciate your support and look forward to making our product even better with your help!
 
 
 <a id="top-contributors"></a>
@@ -974,6 +885,9 @@ This project is licensed under the terms described in the [LICENSE](./LICENSE) f
 A large part of this project is licensed under the Apache 2.0 license. The only exception are the components under the ee (enterprise edition) directory, these are licensed under the Amplication Enterprise Edition license.
 
 <p align="right"><a href="#readme-top">↖ Back to top</a></p>
+
+Distributed under the terms of the [{{cookiecutter.license.replace("-", " ")}} license][./LICENSE],
+_{{cookiecutter.friendly_name}}_ is free and open source software.
 
 ---
 
@@ -1055,7 +969,6 @@ y'know. Pretty good.
 <!-- ACKNOWLEDGMENTS -->
 <a id="acknowledgments"></a>
 ## 🙏 Acknowledgments
-
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
@@ -1151,39 +1064,8 @@ Example groups are ready to be customized for your own plugin architecture.
 
 ---
 
-## 🛡️ Project Status
 
-This is a stable template intended for production use.
-Actively maintained by [RampantLions](https://github.com/RampantLions).
-
-Contributions and feedback are welcome.
-
----
-
-## ⛓ Useful Links
-
-- 🔗 [Project Homepage](https://RampantLions.github.io/coder_plugin/)
-- 🔗 [Source Repository](https://github.com/RampantLions/coder_plugin)
-- 🔗 [Issue Tracker](https://github.com/RampantLions/coder_plugin/issues)
-- 🔗 [Python Packaging Guide](https://packaging.python.org/)
-- 🔗 [PDM Documentation](https://pdm-project.org/)
-
----
-
-## 🔒 Security & 🛡 Security Issues
-
-For details on reporting vulnerabilities, see [SECURITY.md](./SECURITY.md).
-
-
-
-## 🤝 Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to get involved.
-
----
-
-
-🎓 Certification
+## 🎓 Certification
 
 [![OpenID_Foundation_Certification](https://resources.abblix.com/imgs/svg/abblix-oidc-server-openid-foundation-certification-mark.svg)](https://openid.net/certification/#OPENID-OP-P)
 
@@ -1211,10 +1093,17 @@ Support
 
 ---
 
+## Usage
+
+Please see the [Command-line Reference] for details.
+
+## Credits
+
+This project was generated from [@RampantLions]'s [Python Cookiecutter] template.
+
 > GitHub [@RampantLions](https://github.com/RampantLions) &nbsp;&middot;&nbsp;
 > Twitter [@RampantLions](https://twitter.com/RampantLions)
 
----
 
 <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin&title=Awesome%20communcation%20engine!" target="_blank"><img src="https://img.shields.io/twitter/url?label=Reddit&logo=Reddit&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Share on Reddit"/></a>&nbsp;
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//github.com/RampantLions/coder_plugin" target="_blank"><img src="https://img.shields.io/twitter/url?label=LinkedIn&logo=LinkedIn&style=social&url=https%3A%2F%2Fgithub.com%2FRampantLions%2Fcoder_plugin" alt="Share on LinkedIn"/></a>&nbsp;
@@ -1227,76 +1116,18 @@ Support
 
 <!-- END LiminalCognition LLC README.MD BLOCK -->
 
-📖 
 
 
 
-
-
-
-
-
-
-
-# {{ cookiecutter.friendly_name }}
-
-[![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg)][pypi status]
-[![Status](https://img.shields.io/pypi/status/{{cookiecutter.project_name}}.svg)][pypi status]
-[![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.project_name}})][pypi status]
-[![License](https://img.shields.io/pypi/l/{{cookiecutter.project_name}})][license]
-
-[![Read the documentation at https://{{cookiecutter.project_name}}.readthedocs.io/](https://img.shields.io/readthedocs/{{cookiecutter.project_name}}/latest.svg?label=Read%20the%20Docs)][read the docs]
-[![Tests](https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/workflows/Tests/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/branch/main/graph/badge.svg)][codecov]
-
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
-
-[pypi status]: https://pypi.org/project/{{cookiecutter.project_name}}/
-[read the docs]: https://{{cookiecutter.project_name}}.readthedocs.io/
-[tests]: https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/actions?workflow=Tests
-[codecov]: https://app.codecov.io/gh/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}
-[pre-commit]: https://github.com/pre-commit/pre-commit
-[black]: https://github.com/psf/black
-
-## Features
-
-- TODO
-
-## Requirements
-
-- TODO
-
-## Installation
-
-You can install _{{cookiecutter.friendly_name}}_ via [pip] from [PyPI]:
-
-```console
-$ pip install {{cookiecutter.project_name}}
-```
-
-## Usage
-
-Please see the [Command-line Reference] for details.
-
-## Contributing
-
-Contributions are very welcome.
-To learn more, see the [Contributor Guide].
-
-## License
-
-Distributed under the terms of the [{{cookiecutter.license.replace("-", " ")}} license][./LICENSE],
-_{{cookiecutter.friendly_name}}_ is free and open source software.
 
 ## Issues
 
 If you encounter any problems,
 please [file an issue] along with a detailed description.
 
-## Credits
 
-This project was generated from [@RampantLions]'s [Python Cookiecutter] template.
+
+
 
 [@RampantLions]: https://github.com/RampantLions
 [pypi]: https://pypi.org/
@@ -1306,6 +1137,5 @@ This project was generated from [@RampantLions]'s [Python Cookiecutter] template
 
 <!-- github-only -->
 
-[license]: https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/blob/main/.github/LICENSE
 [contributor guide]: https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/blob/main/.github/CONTRIBUTING.md
 [command-line reference]: https://{{cookiecutter.project_name}}.readthedocs.io/en/latest/usage.html
