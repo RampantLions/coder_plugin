@@ -1,0 +1,45 @@
+# .github/workflows/github-publish-package.yml
+
+name: Manual Publish to GitHub Packages (Python)
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  github-publish:
+    runs-on: ubuntu-latest
+    environment: github-publish
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PDM and uv
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pdm uv
+
+      - name: Sync Environment
+        run: |
+          uv sync
+
+      - name: Build project
+        run: |
+          pdm build
+
+      - name: Publish to GitHub Packages
+        env:
+          TWINE_USERNAME: ${{ github.actor }}
+          TWINE_PASSWORD: ${{ secrets.GH_PACKAGES_TOKEN }}
+        run: |
+          python -m pip install twine
+          twine upload \
+            --repository-url https://upload.github.com/owner/repo/ \
+            dist/*

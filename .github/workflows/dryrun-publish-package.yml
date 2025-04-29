@@ -1,0 +1,42 @@
+# .github/workflows/dryrun-publist-package.yml
+
+name: Test Publish to TestPyPI
+
+on:
+  workflow_dispatch:  # Manual trigger via GitHub UI
+
+jobs:
+  testpypi-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install PDM and uv
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pdm uv
+
+      - name: Sync Environment
+        run: |
+          uv sync
+
+      - name: Build Project
+        run: |
+          pdm build
+
+      - name: Publish to TestPyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        run: |
+          python -m pip install twine
+          twine upload --repository testpypi dist/*
