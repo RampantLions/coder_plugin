@@ -14,7 +14,7 @@
 [![GitHub commits](https://img.shields.io/github/commits-since/RampantLions/coder_plugin/v1.5.0.svg?style=social)](https://GitHub.com/RampantLions/coder_plugin/commit/)
 <br/>
 
-[![File A Bug](https://img.shields.io/badge/File%20A%20Bug-blue)](https://github.com/RampantLions/coder_plugin/issues/new?labels=bug) &middot; [![Request Enhancement](https://img.shields.io/badge/Request%20Enhancement-blue)](https://github.com/RampantLions/coder_plugin/issues/new?labels=enhancement&template=enhancement.yml)
+[![File A Bug](https://img.shields.io/badge/File%20A%20Bug-blue)](https://github.com/RampantLions/coder_plugin/issues/new?labels=bug&template=bug_report.yml) &middot; [![Request Enhancement](https://img.shields.io/badge/Request%20Enhancement-blue)](https://github.com/RampantLions/coder_plugin/issues/new?labels=enhancement&template=enhancement.yml)
 <br/>
 
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black] &middot; 
