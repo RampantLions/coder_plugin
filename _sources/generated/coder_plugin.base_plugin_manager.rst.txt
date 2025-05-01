@@ -1,0 +1,12 @@
+﻿coder\_plugin.base\_plugin\_manager
+===================================
+
+.. automodule:: coder_plugin.base_plugin_manager
+
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      BasePluginManager
+   
